@@ -129,34 +129,46 @@
 
 // Two Sum: Write a function that takes an array of numbers and a target sum as arguments and returns the indices of the two numbers in the array that add up to the target sum.
 
-// SOLUTION
-function twoSum(nums, target) {
-  let index = [];
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = 0; j < nums.length; j++) {
-      if (nums[i] + nums[j] == target && nums[i] != nums[j]) {
-        return [nums[i], nums[j]];
-      }
-    }
-  }
-}
+// // SOLUTION
+// function twoSum(nums, target) {
+//   let index = [];
+//   for (let i = 0; i < nums.length; i++) {
+//     for (let j = 0; j < nums.length; j++) {
+//       if (nums[i] + nums[j] == target && nums[i] != nums[j]) {
+//         return [nums[i], nums[j]];
+//       }
+//     }
+//   }
+// }
 
-console.log(twoSum([1, 3, 7, 9, 10], 4));
-console.log(twoSum([5, 9, 11, 15], 20));
-console.log(twoSum([5, 23, 17, 4], 21));
-console.log(twoSum([1, 3, 23, 10], 13));
-console.log(twoSum([15, 23, 3, 45], 68));
+// console.log(twoSum([1, 3, 7, 9, 10], 4));
+// console.log(twoSum([5, 9, 11, 15], 20));
+// console.log(twoSum([5, 23, 17, 4], 21));
+// console.log(twoSum([1, 3, 23, 10], 13));
+// console.log(twoSum([15, 23, 3, 45], 68));
 
+//
+//
 // QUESTION 5
 
 // Longest common prefix: Write a function that takes an array of strings as an argument and returns the longest common prefix among them.
 
 // SOLUTION
-// function commonPrefix(list) {
+function longestCommonPrefix(strs) {
+  if (!strs.length) return "";
+  let prefix = "";
+  for (let i = 0; i < strs[0].length; i++) {
+    for (let j = 1; j < strs.length; j++) {
+      if (strs[0][i] !== strs[j][i]) return prefix;
+    }
+    prefix += strs[0][i];
+  }
+  return prefix;
+}
 
-// }
-
-// commonPrefix(["learn", "love", "list", "low"]);
-// commonPrefix(["java", "javascript", "just", "jarvis"]);
-// commonPrefix(["code", "coding"]);
-// commonPrefix(["script", "scripting", "scrutch", "scrumble"]);
+console.log(longestCommonPrefix(["learn", "love", "list", "low", "lo"]));
+console.log(longestCommonPrefix(["java", "javascript", "just", "jarvis"]));
+console.log(longestCommonPrefix(["code", "coding", "codi"]));
+console.log(
+  longestCommonPrefix(["script", "scripting", "scrutch", "scrumble"])
+);
