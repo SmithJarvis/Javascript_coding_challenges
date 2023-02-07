@@ -153,22 +153,41 @@
 
 // Longest common prefix: Write a function that takes an array of strings as an argument and returns the longest common prefix among them.
 
-// SOLUTION
-function longestCommonPrefix(strs) {
-  if (!strs.length) return "";
-  let prefix = "";
-  for (let i = 0; i < strs[0].length; i++) {
-    for (let j = 1; j < strs.length; j++) {
-      if (strs[0][i] !== strs[j][i]) return prefix;
-    }
-    prefix += strs[0][i];
-  }
-  return prefix;
-}
+// // SOLUTION
+// function longestCommonPrefix(strs) {
+//   if (!strs.length) return "";
+//   let prefix = "";
+//   for (let i = 0; i < strs[0].length; i++) {
+//     for (let j = 1; j < strs.length; j++) {
+//       if (strs[0][i] !== strs[j][i]) return prefix;
+//     }
+//     prefix += strs[0][i];
+//   }
+//   return prefix;
+// }
 
-console.log(longestCommonPrefix(["learn", "love", "list", "low", "lo"]));
-console.log(longestCommonPrefix(["java", "javascript", "just", "jarvis"]));
-console.log(longestCommonPrefix(["code", "coding", "codi"]));
-console.log(
-  longestCommonPrefix(["script", "scripting", "scrutch", "scrumble"])
-);
+// console.log(longestCommonPrefix(["learn", "love", "list", "low", "lo"]));
+// console.log(longestCommonPrefix(["java", "javascript", "just", "jarvis"]));
+// console.log(longestCommonPrefix(["code", "coding", "codi"]));
+// console.log(
+//   longestCommonPrefix(["script", "scripting", "scrutch", "scrumble"])
+// );
+
+//
+// FEB 07 2023
+
+// QUESTION 1
+// Array flattening: Write a function that takes an array of nested arrays as an argument and returns a flattened version of the array.
+
+function flattenArr(arr) {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "number") {
+      newArr.push(arr[i]);
+    } else {
+      newArr.push(...flattenArr(arr[i]));
+    }
+  }
+  return newArr;
+}
+flattenArr([[[[[0]], [1]], [[[2], [3]]], [[4], [5]]]]);
