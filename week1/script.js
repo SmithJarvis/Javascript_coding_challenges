@@ -179,15 +179,109 @@
 // QUESTION 1
 // Array flattening: Write a function that takes an array of nested arrays as an argument and returns a flattened version of the array.
 
-function flattenArr(arr) {
-  const newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] === "number") {
-      newArr.push(arr[i]);
-    } else {
-      newArr.push(...flattenArr(arr[i]));
-    }
-  }
-  return newArr;
-}
-flattenArr([[[[[0]], [1]], [[[2], [3]]], [[4], [5]]]]);
+// function flattenArr(arr) {
+//   const newArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (typeof arr[i] === "number") {
+//       newArr.push(arr[i]);
+//     } else {
+//       newArr.push(...flattenArr(arr[i]));
+//     }
+//   }
+//   return newArr;
+// }
+// flattenArr([[[[[0]], [1]], [[[2], [3]]], [[4], [5]]]]);
+
+//
+// FEB 09 2023
+//
+//
+// QUESTION 1
+//
+// // Create a function that takes an array of numbers and return "Boom!" if the digit 7 appears in the array. Otherwise, return "there is no 7 in the array".
+
+// // Examples
+// // sevenBoom([1, 2, 3, 4, 5, 6, 7]) ➞ "Boom!"
+// // // 7 contains the number seven.
+
+// // sevenBoom([8, 6, 33, 100]) ➞ "there is no 7 in the array"
+// // // None of the items contain 7 within them.
+
+// // sevenBoom([2, 55, 60, 97, 86]) ➞ "Boom!"
+// // // 97 contains the number seven.
+
+// // SOLUTION
+// function sevenBoom(arr) {
+//   return arr.includes(7) ? "Boom!" : "There is no 7 in the array";
+// }
+// console.log(sevenBoom([1, 2, 3, 4, 5, 6, 7]));
+// console.log(sevenBoom([8, 6, 33, 100]));
+// console.log(sevenBoom([2, 55, 60, 97, 86]));
+
+// QUESTION 2
+//
+//
+//
+// Your function will be passed two functions, f and g, that don't take any parameters. Your function has to call them, and return a string which indicates which function returned the larger number.
+
+// If f returns the larger number, return the string f.
+// If g returns the larger number, return the string g.
+// If the functions return the same number, return the string neither.
+// Examples
+// whichIsLarger(() => 5, () => 10) ➞ "g"
+// whichIsLarger(() => 25,  () => 25) ➞ "neither"
+// whichIsLarger(() => 505050, () => 5050) ➞ "f"
+
+// // SOLUTION
+// function whichIsLarger(f, g) {
+//   f = f();
+//   g = g();
+//   if (f > g) {
+//     return "f";
+//   } else if (g > f) {
+//     return "g";
+//   } else {
+//     return "neither";
+//   }
+// }
+// console.log(whichIsLarger(() => 5, () => 10))
+// console.log(whichIsLarger(() => 25,  () => 25) )
+// console.log(whichIsLarger(() => 505050, () => 5050) )
+
+// QUESTION 3
+//
+//
+//
+// Create a function that returns true if the first array can be nested inside the second and false otherwise.
+
+// arr1 can be nested inside arr2 if:
+
+// arr1's min is greater than arr2's min.
+// arr1's max is less than arr2's max.
+// Examples
+// canNest([1, 2, 3, 4], [0, 6]) ➞ true
+
+// canNest([3, 1], [4, 0]) ➞ true
+
+// canNest([9, 9, 8], [8, 9]) ➞ false
+
+// canNest([1, 2, 3, 4], [2, 3]) ➞ false
+
+// // SOLUTION
+// function canNest(arr1, arr2) {
+//   const min_arr1 = Math.min(...arr1);
+//   const max_arr1 = Math.max(...arr1);
+//   const min_arr2 = Math.min(...arr2);
+//   const max_arr2 = Math.max(...arr2);
+
+//   if (min_arr1 > min_arr2 && max_arr1 < max_arr2) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// console.log(canNest([1, 2, 3, 4], [0, 6]));
+// console.log(canNest([3, 1], [4, 0]));
+// console.log(canNest([9, 9, 8], [8, 9]));
+// console.log(canNest([1, 2, 3, 4], [2, 3]));
