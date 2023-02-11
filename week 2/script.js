@@ -63,7 +63,7 @@
 //
 //
 //
-// QUESTION 2
+// QUESTION 3
 //Create a function that determines whether a number is Oddish or Evenish. A number is Oddish if the sum of all of its digits is odd, and a number is Evenish if the sum of all of its digits is even. If a number is Oddish, return "Oddish". Otherwise, return "Evenish".
 
 // For example, oddishOrEvenish(121) should return "Evenish", since 1 + 2 + 1 = 4. oddishOrEvenish(41) should return "Oddish", since 4 + 1 = 5.
@@ -93,3 +93,120 @@
 // console.log(oddishOrEvenish(43));
 // console.log(oddishOrEvenish(373));
 // console.log(oddishOrEvenish(4433));
+
+//
+//
+//
+//
+//
+// FEB 11 2023
+//
+//
+//
+//
+//
+// //  QUESTION 1
+// // Create a function that takes two dates and returns the number of days between the first and second date.
+// //
+// // Examples
+// // getDays(
+// //   new Date("June 14, 2019"),
+// //   new Date("June 20, 2019")
+// // ) ➞ 6
+
+// // getDays(
+// //   new Date("December 29, 2018"),
+// //   new Date("January 1, 2019")
+// // ) ➞ 3
+// // // Dates may not all be in the same month/year.
+
+// // getDays(
+// //   new Date("July 20, 2019"),
+// //   new Date("July 30, 2019")
+// // ) ➞ 10
+
+// // SOLUTION
+// function getDays(date1, date2) {
+//   return `${Math.floor((date2 - date1) / (1000 * 60 * 60 * 24))} days`;
+// }
+
+// console.log(getDays(new Date("June 14, 2019"), new Date("June 20, 2019")));
+// console.log(getDays(new Date("Dec 29, 2018"), new Date("Jan 1, 2019")));
+// console.log(getDays(new Date("July 20, 2019"), new Date("July 30, 2019")));
+
+//
+//
+//
+// QUESTION 2
+//
+// The .length property on an array will return the number of elements in the array. For example, the array below contains 2 elements:
+//
+// [1, [2, 3]]
+// // 2 elements, number 1 and array [2, 3]
+// Suppose we instead wanted to know the total number of non-nested items in the nested array. In the above case, [1, [2, 3]] contains 3 non-nested items, 1, 2 and 3.
+
+// Write a function that returns the total number of non-nested items in a nested array.
+
+// Examples
+// getLength([1, [2, 3]]) ➞ 3
+
+// getLength([1, [2, [3, 4]]]) ➞ 4
+
+// getLength([1, [2, [3, [4, [5, 6]]]]]) ➞ 6
+
+// getLength([1, [2], 1, [2], 1]) ➞ 5
+
+// // SOLUTION
+
+// function getLength(arr) {
+//   let total = 0;
+
+//   for (const item of arr) {
+//     if (Array.isArray(item)) {
+//       total += getLength(item);
+//     } else {
+//       total++;
+//     }
+//   }
+
+//   return total;
+// }
+
+// console.log(getLength([1, [2, 3]]));
+// console.log(getLength([1, [2, [3, 4]]]));
+// console.log(getLength([1, [2, [3, [4, [5, 6]]]]]));
+// console.log(getLength([1, [2], 1, [2], 1]));
+// console.log(getLength([]));
+
+//
+//
+//
+//
+// QUESTION 3
+//
+// Write the function that takes three dimensions of a brick: height(a), width(b) and depth(c) and returns true if this brick can fit into a hole with the width(w) and height(h).
+
+// Examples
+// doesBrickFit(1, 1, 1, 1, 1) ➞ true
+
+// doesBrickFit(1, 2, 1, 1, 1) ➞ true
+
+// doesBrickFit(1, 2, 2, 1, 1) ➞ false
+//
+// Notes
+//     1. You can turn the brick with any side towards the hole.
+//     2. We assume that the brick fits if its sizes equal the ones of the hole (i.e. brick size should be less than or equal to the size of the hole, not strictly less).
+//     3. You can't put a brick in at a non-orthogonal angle.
+
+// // SOLUTION
+
+// // (a,b,c) -- dimensions of the brick
+// // (w,h) -- dimensions of the hole
+// function doesBrickFit(a, b, c, w, h) {
+//   if ((a <= h && b <= w) || (a <= w && b <= h)) return true;
+//   return false;
+// }
+
+// console.log(doesBrickFit(1, 1, 1, 1, 1));
+// console.log(doesBrickFit(1, 2, 1, 1, 1));
+// console.log(doesBrickFit(1, 2, 2, 1, 1));
