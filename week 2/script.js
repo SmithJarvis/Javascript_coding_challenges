@@ -210,3 +210,107 @@
 // console.log(doesBrickFit(1, 1, 1, 1, 1));
 // console.log(doesBrickFit(1, 2, 1, 1, 1));
 // console.log(doesBrickFit(1, 2, 2, 1, 1));
+
+//
+//
+//
+//
+//
+// FEB 12 2023
+//
+// QUESTION 1
+// Build a function that creates histograms. Every bar needs to be on a new line and its length corresponds to the numbers in the array passed as an argument. The second argument of the function represents the character to be used for the bar.
+
+// histogram(arr, char) ➞ str
+// Examples
+// histogram([1, 3, 4], "#") ➞ "#\n###\n####"
+
+// #
+// ###
+// ####
+
+// histogram([6, 2, 15, 3], "=") ➞ "======\n==\n===============\n==="
+
+// ======
+// ==
+// ===============
+// ===
+
+// histogram([1, 10], "+") ➞ "+\n++++++++++"
+
+// +
+// ++++++++++
+// //
+// //  SOLUTION
+// function histogram(arr, char) {
+//   let output = "";
+//   //   Outer loop for say values 1, 3, 4 according to example 1
+//   for (let arr1 of arr) {
+//     // Inner loop for printing individual " char "
+//     for (let i = 1; i <= arr1; i++) {
+//       output += char;
+//     }
+//     output += "\n";
+//   }
+//   return `${output}`;
+// }
+
+// console.log(histogram([1, 3, 4], "#"));
+// console.log(histogram([6, 2, 15, 3], "="));
+// console.log(histogram([1, 10], "+"));
+
+//
+//
+//  QUESTION 2
+// If a person traveled up a hill for 18mins at 20mph and then traveled back down the same path at 60mph then their average speed traveled was 30mph.
+//
+// Write a function that returns the average speed traveled given an uphill time, uphill rate and a downhill rate. Uphill time is given in minutes. Return the rate as an integer (mph). No rounding is necessary.
+
+// Examples
+// aveSpd(18, 20, 60) ➞ 30
+// aveSpd(30, 10, 30) ➞ 15
+// aveSpd(30, 8, 24) ➞ 12
+
+// // SOLUTION
+// function aveSpd(uptime, uprate, downrate) {
+//   const distance = uprate * (uptime / 60);
+//   const downtime = distance / downrate;
+//   const aveSpd = (distance * 2) / (downtime + uptime / 60);
+
+//   return aveSpd;
+// }
+
+// console.log(aveSpd(18, 20, 60));
+// console.log(aveSpd(30, 10, 30));
+// console.log(aveSpd(30, 8, 24));
+
+//
+//
+// // QUESTION 3
+// Create a function that takes three collections of arguments and returns the sum of the product of numbers. Add the result of the first digit in each collection multiplied together to the result of the second digit in each collection multiplied together to get the final solution.
+
+// Examples
+// product(1,2)(1,1)(2,3) ➞ 8
+// // 1 * 1 * 2 + 2 * 1 * 3
+
+// product(10,2)(5,0)(2,3) ➞ 100
+// // 10 * 5 * 2 + 2 * 0 * 3
+
+// product(1,2)(2,3)(3,4) ➞ 30
+// // 1 * 2 * 3 + 2 * 3 * 4
+
+// product(1,2)(0,3)(3,0) ➞ 0
+// // 1 * 0 * 3 + 2 * 3 * 0
+
+// // SOLUTION
+// function product(a, b) {
+//   return function (c, d) {
+//     return function (e, f) {
+//       return a * c * e + b * d * f;
+//     };
+//   };
+// }
+// console.log(product(1, 2)(1, 1)(2, 3));
+// console.log(product(10, 2)(5, 0)(2, 3));
+// console.log(product(1, 2)(2, 3)(3, 4));
+// console.log(product(1, 2)(0, 3)(3, 0));
