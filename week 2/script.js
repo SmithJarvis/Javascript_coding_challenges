@@ -314,3 +314,99 @@
 // console.log(product(10, 2)(5, 0)(2, 3));
 // console.log(product(1, 2)(2, 3)(3, 4));
 // console.log(product(1, 2)(0, 3)(3, 0));
+
+//
+//
+//
+//
+// FEB 13 2023
+//
+// QUESTION 1
+// Create a function that takes an array of strings and returns an array with only the strings that have numbers in them. If there are no strings containing numbers, return an empty array.
+
+// Examples
+// numInStr(["1a", "a", "2b", "b"]) ➞ ["1a", "2b"]
+
+// numInStr(["abc", "abc10"]) ➞ ["abc10"]
+
+// numInStr(["abc", "ab10c", "a10bc", "bcd"]) ➞ ["ab10c", "a10bc"]
+
+// numInStr(["this is a test", "test1"]) ➞ ["test1"]
+//
+// // SOLUTION
+// function numInStr(arr) {
+//   const newArr = [];
+//   for (const array of arr) {
+//     if (array.includes(1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9 || 0)) {
+//       newArr.push(array);
+//     }
+//   }
+//   return newArr;
+// }
+
+// console.log(numInStr(["1a", "a", "2b", "b"]));
+// console.log(numInStr(["abc", "abc10"]));
+// console.log(numInStr(["abc", "ab10c", "a10bc", "bcd"]));
+// console.log(numInStr(["this is a test", "test1"]));
+
+//
+//
+//
+// QUESTION 2
+// Create a function that takes a number as an argument and returns n instances of the Fibonacci sequence as an array.
+
+// Fibonacci numbers: F(n) = F(n-1) + F(n-2) with F(0) = 0 and F(1) = 1. So the easy explanation is: The next element is the sum of the two previous elements.
+
+// fibSeq(4) ➞ [0, 1, 1, 2]
+// fibSeq(7) ➞ [0, 1, 1, 2, 3, 5, 8]
+// fibSeq(0) ➞ []
+
+// Notes
+// If 0 is given, return an empty array.
+// If no argument is given, return undefined.
+// The input will never be a negative integer.
+//
+// // SOLUTION
+// function fibSeq(n) {
+//   if (n === 0) return [];
+//   if (!n) return;
+
+//   let fib = [0, 1];
+
+//   for (let i = 2; i < n; i++) {
+//     fib[i] = fib[i - 1] + fib[i - 2];
+//   }
+//   return fib;
+// }
+
+// console.log(fibSeq(4));
+// console.log(fibSeq(7));
+// console.log(fibSeq(-7));
+// console.log(fibSeq(0));
+// console.log(fibSeq());
+
+//
+//
+//
+// QUESTION 3
+// Create a function that takes a variable number of arguments, each argument representing the number of items in a group. The function should return the number of permutations (combinations) of choices you would have if you selected one item from each group.
+
+// Examples
+// combinations(2, 3) ➞ 6
+
+// combinations(3, 7, 4) ➞ 84
+
+// combinations(2, 3, 4, 5) ➞ 120
+
+// // SOLUTION
+// function combinations() {
+//   var s = 1;
+//   for (var i = 0; i < arguments.length; i++) {
+//     s *= arguments[i];
+//   }
+//   return s;
+// }
+
+// console.log(combinations(2, 3));
+// console.log(combinations(3, 7, 4));
+// console.log(combinations(2, 3, 4, 5));
