@@ -400,8 +400,8 @@
 
 // // SOLUTION
 // function combinations() {
-//   var s = 1;
-//   for (var i = 0; i < arguments.length; i++) {
+//   let s = 1;
+//   for (let i = 0; i < arguments.length; i++) {
 //     s *= arguments[i];
 //   }
 //   return s;
@@ -410,3 +410,147 @@
 // console.log(combinations(2, 3));
 // console.log(combinations(3, 7, 4));
 // console.log(combinations(2, 3, 4, 5));
+
+//
+//
+//
+//
+// FEB 14 2023
+//
+//
+// QUESTION 1
+// Create a function that takes a string as an argument. The function must return a string containing 1s and 0s based on the string argument's words. If any word in the argument is not equal to "zero" or "one" (case insensitive), you should ignore it. The returned string's length should be a multiple of 8, if the string is not a multiple of 8 you should remove the numbers in excess.
+
+// Examples
+// textToNumberBinary("zero one zero one zero one zero one") ➞ "01010101"
+
+// textToNumberBinary("Zero one zero ONE zero one zero one") ➞ "01010101"
+
+// textToNumberBinary("zero one zero one zero one zero one one two") ➞ "01010101"
+
+// textToNumberBinary("zero one zero one zero one zero three") ➞ ""
+
+// textToNumberBinary("one one") ➞ ""
+
+// // SOLUTION
+// function textToNumberBinary(str) {
+//   let outputString = "";
+//   for (const word of str.split(" ")) {
+//     if (word.toLowerCase() === "zero") outputString += "0";
+//     else if (word.toLowerCase() === "one") outputString += "1";
+//   }
+//   if (outputString.length < 8) return '""';
+//   return outputString.slice(0, 8);
+// }
+
+// console.log(textToNumberBinary("zero one zero one zero one zero one"));
+// console.log(textToNumberBinary("Zero one zero ONE zero one zero one"));
+// console.log(textToNumberBinary("zero one zero one zero one zero one one two"));
+// console.log(textToNumberBinary("zero one zero one zero one zero three"));
+// console.log(textToNumberBinary("one one"));
+
+//
+//
+//
+// QUESTION 2
+// An array is positive dominant if it contains strictly more unique positive values than unique negative values. Write a function that returns true if an array is positive dominant.
+
+// Examples
+// isPositiveDominant([1, 1, 1, 1, -3, -4]) ➞ false
+// // There is only 1 unique positive value (1).
+// // There are 2 unique negative values (-3, -4).
+
+// isPositiveDominant([5, 99, 832, -3, -4]) ➞ true
+
+// isPositiveDominant([5, 0]) ➞ true
+
+// isPositiveDominant([0, -4, -1]) ➞ false
+// // SOLUTION
+// function isPositiveDominant(arr) {
+//   // To only remain with unique values
+//   arr = new Set(arr);
+//   let positive = 0;
+//   let negative = 0;
+//   for (const value of arr) {
+//     if (value > 0) positive += 1;
+//     if (value < 0) negative += 1;
+//   }
+//   if (positive > negative) return true;
+//   return false;
+// }
+// console.log(isPositiveDominant([1, 1, 1, 1, -3, -4]));
+// console.log(isPositiveDominant([5, 99, 832, -3, -4]));
+// console.log(isPositiveDominant([5, 0]));
+// console.log(isPositiveDominant([0, -4, -1]));
+
+//
+//
+//
+// QUESTION 3
+// // Create a function that takes an array of objects (groceries) which calculates the total price and returns it as a number. A grocery object has a product, a quantity and a price, for example:
+
+// {
+//   "product": "Milk",
+//   "quantity": 1,
+//   "price": 1.50
+// }
+// Examples;
+// 1 bottle of milk:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 }
+// ]) ➞ 1.5
+
+// // 1 bottle of milk & 1 box of cereals:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 },
+//   { product: "Cereals", quantity: 1, price: 2.50 }
+// ]) ➞ 4
+
+// // 3 bottles of milk:
+// getTotalPrice([
+//   { product: "Milk", quantity: 3, price: 1.50 }
+// ]) ➞ 4.5
+
+// // Several groceries:
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.50 },
+//   { product: "Eggs", quantity: 12, price: 0.10 },
+//   { product: "Bread", quantity: 2, price: 1.60 },
+//   { product: "Cheese", quantity: 1, price: 4.50 }
+// ]) ➞ 10.4
+
+// // Some cheap candy:
+// getTotalPrice([
+//   { product: "Chocolate", quantity: 1, price: 0.10 },
+//   { product: "Lollipop", quantity: 1, price: 0.20 }
+// ]) ➞ 0.3
+
+// // SOLUTION
+// function getTotalPrice(groceries) {
+//   let total = 0;
+//   for (const item of groceries) {
+//     total += item["price"] * item["quantity"];
+//   }
+//   return console.log(total);
+// }
+
+// getTotalPrice([{ product: "Milk", quantity: 1, price: 1.5 }]);
+
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.5 },
+//   { product: "Cereals", quantity: 1, price: 2.5 },
+// ]);
+
+// getTotalPrice([{ product: "Milk", quantity: 3, price: 1.5 }]);
+
+// getTotalPrice([
+//   { product: "Milk", quantity: 1, price: 1.5 },
+//   { product: "Eggs", quantity: 12, price: 0.1 },
+//   { product: "Bread", quantity: 2, price: 1.6 },
+//   { product: "Cheese", quantity: 1, price: 4.5 },
+// ]);
+
+// getTotalPrice([
+//   { product: "Chocolate", quantity: 1, price: 0.1 },
+//   { product: "Lollipop", quantity: 1, price: 0.2 },
+// ]);
