@@ -554,3 +554,101 @@
 //   { product: "Chocolate", quantity: 1, price: 0.1 },
 //   { product: "Lollipop", quantity: 1, price: 0.2 },
 // ]);
+
+//
+//
+//
+//
+//
+// FEB 15 2023
+//
+//
+//
+// QUESTION 1
+// Create a function that takes a number n as an argument and checks whether the given number can be expressed as a sum of two or more consecutive positive numbers.
+
+// Examples
+// consecutiveSum(9) ➞ true
+// // 9 can be expressed as a sum of (2 + 3 + 4) or (4 + 5).
+
+// consecutiveSum(10) ➞ true
+// // 10 can be expressed as a sum of 1 + 2 + 3 + 4.
+
+// consecutiveSum(64) ➞ false
+
+// // SOLUTION
+// function consecutiveSum(n) {
+//   let start = 1;
+//   while (start < n / 2) {
+//     let sum = start;
+//     let current = start + 1;
+//     while (sum < n) {
+//       sum += current;
+//       if (sum === n) {
+//         return console.log(true);
+//       }
+//       current++;
+//     }
+//     start++;
+//   }
+//   return console.log(false);
+// }
+
+// consecutiveSum(9);
+// consecutiveSum(10);
+// consecutiveSum(64);
+
+//
+//
+// QUESTION 2
+// You can think of character classes as characters with special meaning. They are recognized as special when you place the \ before the character.
+
+// Here are a list of the characters classes in JavaScript:
+// ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
+
+// HTML elements are everything from the start tag to the end tag. An example of one div element would be: <div>edabit</div>.
+
+// Find out how many <div> elements are used in a string. Use the character class \W in your expression.
+
+// Example
+// const str = "<div>Hello.</div><div>My name is <b>George</b>.</div>"
+// // 2 times
+
+// const str = "<div><h1>The Word for Today</h1><div>aardvark</div></div>"
+// // 2 times
+
+// const str = "<div></div>"
+// // 1 time
+
+// // SOLUTION
+// const REGEXP = /<div>\W*<\/div>/g;
+// const str = "<div>Hello.</div><div>My name is <b>George</b>.</div>";
+// const matches = str.match(/<div>\W*<\/div>/g);
+
+//
+//
+//
+// QUESTION 3
+// Given a string, reverse all the words which have odd length. The even length words are not changed.
+
+// Examples
+// reverseOdd("Bananas") ➞ "sananaB"
+
+// reverseOdd("One two three four") ➞ "enO owt eerht four"
+
+// reverseOdd("Make sure uoy only esrever sdrow of ddo length")
+// ➞ "Make sure you only reverse words of odd length"
+
+// SOLUTION
+function reverseOdd(str) {
+  let reverseStr = "";
+  for (const word of str.split(" ")) {
+    if (word.length % 2 == 1) {
+      reverseStr += word.split("").reverse().join("") + " ";
+    } else reverseStr += word + " ";
+  }
+  return console.log(reverseStr);
+}
+reverseOdd("Bananas");
+reverseOdd("One two three four");
+reverseOdd("Make sure uoy only esrever sdrow of ddo length");
