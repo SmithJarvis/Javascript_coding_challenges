@@ -639,16 +639,122 @@
 // reverseOdd("Make sure uoy only esrever sdrow of ddo length")
 // ➞ "Make sure you only reverse words of odd length"
 
-// SOLUTION
-function reverseOdd(str) {
-  let reverseStr = "";
-  for (const word of str.split(" ")) {
-    if (word.length % 2 == 1) {
-      reverseStr += word.split("").reverse().join("") + " ";
-    } else reverseStr += word + " ";
-  }
-  return console.log(reverseStr);
-}
-reverseOdd("Bananas");
-reverseOdd("One two three four");
-reverseOdd("Make sure uoy only esrever sdrow of ddo length");
+// // SOLUTION
+// function reverseOdd(str) {
+//   let reverseStr = "";
+//   for (const word of str.split(" ")) {
+//     if (word.length % 2 == 1) {
+//       reverseStr += word.split("").reverse().join("") + " ";
+//     } else reverseStr += word + " ";
+//   }
+//   return console.log(reverseStr);
+// }
+// reverseOdd("Bananas");
+// reverseOdd("One two three four");
+// reverseOdd("Make sure uoy only esrever sdrow of ddo length");
+
+//
+//
+//
+//
+//  FEB 16 2023
+//
+//
+// QUESTION 1
+// A pandigital number contains all digits (0-9) at least once. Write a function that takes an integer, returning true if the integer is pandigital, and false otherwise.
+
+// Examples
+// isPandigital(98140723568910) ➞ true
+
+// isPandigital(90864523148909) ➞ false
+// // 7 is missing.
+
+// isPandigital(112233445566778899) ➞ false
+// // SOLUTION
+
+// function isPandigital(num) {
+//   num += "";
+//   const digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+//   for (const value of digits) {
+//     if (!num.includes(value)) return false;
+//   }
+//   return true;
+// }
+
+// console.log(isPandigital(98140723568910));
+// console.log(isPandigital(90864523148909));
+// console.log(isPandigital(112233445566778899));
+
+//
+//
+//
+//
+// QUESTION 2
+// Two players draw a pair of numbered cards so that both players can form a 2 digit number. A winner can be decided if one player's number is larger than the other.
+
+// However, there is a rule where a player can swap any one of their cards with any one of the other player's cards in a gamble to get a higher number! Note that it is illegal to swap the order of your own cards. That means if you draw a 1 then a 9, you cannot swap them to get 91.
+
+// Numbered Cards
+
+// Paul's strategy is to always swap his lowest number with the opponent's ten's digit. Return whether this results in Paul winning the round.
+
+// n1 is Paul's number
+// n2 is his opponent's number
+// Worked Example
+// swap_cards(41, 79) ➞ true
+// // Paul's lowest number is 1
+// // The opponent's ten's digit is 7
+// // After the swap: 47 > 19
+// // Paul wins the round
+// Examples
+// swapCards(41, 98) ➞ true
+
+// swapCards(12, 28) ➞ true
+
+// swapCards(67, 53) ➞ false
+
+// swapCards(77, 54) ➞ false
+
+// // SOLUTION
+// function swapCards(n1, n2) {
+//   let lowestDigit = Math.min(n1 % 10, Math.floor(n1 / 10));
+//   let opponentTensDigit = Math.floor(n2 / 10);
+//   let swappedNumber = lowestDigit * 10 + opponentTensDigit;
+//   return swappedNumber < n2;
+// }
+
+// console.log(swapCards(41, 79));
+// console.log(swapCards(41, 98));
+// console.log(swapCards(12, 28));
+// console.log(swapCards(67, 53));
+// console.log(swapCards(77, 54));
+
+//
+//
+//
+// QUESTION 3
+// Write a function that returns the least common multiple (LCM) of two integers.
+
+// Examples
+// lcm(9, 18) ➞ 18
+
+// lcm(8, 5) ➞ 40
+
+// lcm(17, 11) ➞ 187
+// Notes
+// Both values will be positive.
+// The LCM is the smallest integer that is divisible by both numbers such that the remainder is zero.
+
+// // SOLUTION
+// function lcm(num1, num2) {
+//   let num = 1;
+//   while (num > 0) {
+//     if (num % num1 === 0 && num % num2 === 0) return num;
+//     num += 1;
+//   }
+// }
+
+// console.log(lcm(9, 18));
+// console.log(lcm(2, 10));
+// console.log(lcm(8, 5));
+// console.log(lcm(17, 11));
