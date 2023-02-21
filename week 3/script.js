@@ -220,7 +220,9 @@
 //
 //
 //
-// QUESTION 3A number is said to be Disarium if the sum of its digits raised to their respective positions is the number itself.
+//
+// QUESTION 3
+// A number is said to be Disarium if the sum of its digits raised to their respective positions is the number itself.
 
 // Create a function that determines whether a number is a Disarium or not.
 
@@ -252,3 +254,112 @@
 // console.log(isDisarium(518));
 // console.log(isDisarium(8));
 // console.log(isDisarium(466));
+//
+//
+//
+//
+//
+//  FEB 21 2023
+//
+//
+//
+// QUESTION 1
+// Write a function to replace all instances of character c1 with character c2 and vice versa.
+
+// Examples
+// doubleSwap( "aabbccc", "a", "b") ➞ "bbaaccc"
+
+// doubleSwap("random w#rds writt&n h&r&", "#", "&")
+// ➞ "random w&rds writt#n h#r#"
+
+// doubleSwap("128 895 556 788 999", "8", "9")
+// ➞ "129 985 556 799 888"
+
+// // // SOLUTION
+// function doubleSwap(str, c1, c2) {
+//   let newStr = "";
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] === c1) {
+//       newStr += str[i].replace(c1, c2);
+//       //   console.log(str);
+//     } else if (str[i] === c2) {
+//       newStr += str[i].replace(c2, c1);
+//       //   console.log(str);
+//     } else newStr += str[i];
+//   }
+//   return newStr;
+// }
+
+// console.log(doubleSwap("aabbccc", "a", "b"));
+// console.log(doubleSwap("random w#rds writt&n h&r&", "#", "&"));
+// console.log(doubleSwap("128 895 556 788 999", "8", "9"));
+
+//
+//
+//
+//  QUESTION 2
+//Create a function that takes two numbers as arguments and return the LCM of the two numbers.
+
+// Examples
+// lcm(3, 5) ➞ 15
+// lcm(14, 28) ➞ 28
+// lcm(4, 6) ➞ 12
+
+// // SOLUTION
+// function lcm(num1, num2) {
+//   let i = 1;
+//   while (i > 0) {
+//     if (i % num1 === 0 && i % num2 === 0) {
+//       return i;
+//     }
+//     i += 1;
+//   }
+//   return i;
+// }
+
+// console.log(lcm(3, 5));
+// console.log(lcm(14, 28));
+// console.log(lcm(4, 6));
+
+//
+//
+//
+//  QUESTION 3
+// Create a function to perform basic arithmetic operations that includes addition, subtraction, multiplication and division on a string number (e.g. "12 + 24" or "23 - 21" or "12 / 12" or "12 * 21").
+
+// Here, we have 1 followed by a space, operator followed by another space and 2. For the challenge, we are going to have only two numbers between 1 valid operator. The return value should be a number.
+
+// eval() is not allowed. In case of division, whenever the second number equals "0" return -1.
+
+// For example:
+
+// "15 / 0"  ➞ -1
+// Examples
+// arithmeticOperation("12 + 12") ➞ 24 // 12 + 12 = 24
+
+// arithmeticOperation("12 - 12") ➞ 24 // 12 - 12 = 0
+
+// arithmeticOperation("12 * 12") ➞ 144 // 12 * 12 = 144
+
+// arithmeticOperation("12 / 0") ➞ -1 // 12 / 0 = -1
+
+// // SOLUTION
+// function arithmeticOperation(task) {
+//   let output = 0;
+//   let operator = task.split(" ")[1],
+//     first_num = task.split(" ")[0],
+//     second_num = task.split(" ")[2];
+
+//   if (operator === "+") output = Number(first_num) + Number(second_num);
+//   else if (operator === "-") output = Number(first_num) - Number(second_num);
+//   else if (operator === "*") output = Number(first_num) * Number(second_num);
+//   else if (operator === "/") output = Number(first_num) / Number(second_num);
+
+//   if (output === "Infinity") return -1;
+//   else return output;
+// }
+
+// console.log(arithmeticOperation("12 + 12"));
+// console.log(arithmeticOperation("12 - 12"));
+// console.log(arithmeticOperation("12 * 12"));
+// console.log(arithmeticOperation("12 / 0"));
