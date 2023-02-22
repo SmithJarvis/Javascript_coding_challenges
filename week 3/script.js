@@ -363,3 +363,127 @@
 // console.log(arithmeticOperation("12 - 12"));
 // console.log(arithmeticOperation("12 * 12"));
 // console.log(arithmeticOperation("12 / 0"));
+
+//
+//
+//
+//
+//
+// FEB 22 2023
+//
+//
+// QUESTION 1
+//
+// Create a function to check if a given integer is a factorial of integer or not. The return value should be a boolean.
+
+// Examples
+// isFactorial(2) ➞ true
+// // 2 = 2 * 1 = 2!
+
+// isFactorial(27) ➞ false
+
+// isFactorial(24) ➞ true
+// // 24 = 4 * 3 * 2 * 1 = 4!
+
+// // SOLUTION
+// function isFactorial(num) {
+//   let arr_multiples = [];
+//   for (let i = 1; i < 24; i++) {
+//     if (num !== 1 && num % i === 0) {
+//       num /= i;
+//       arr_multiples.push(i);
+//     }
+//   }
+
+//   for (let i = 0; i < arr_multiples.length; i++) {
+//     if (arr_multiples[i] !== i + 1) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(isFactorial(2));
+// console.log(isFactorial(27));
+// console.log(isFactorial(24));
+
+//
+//
+//
+//
+// QUESTION 2
+// Someone has attempted to censor my strings by replacing every vowel with a *, l*k* th*s. Luckily, I've been able to find the vowels that were removed.
+
+// Given a censored string and a string of the censored vowels, return the original uncensored string.
+
+// Example
+// uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo") ➞ "Where did my vowels go?"
+// uncensor("abcd", "") ➞ "abcd"
+// uncensor("*PP*RC*S*", "UEAE") ➞ "UPPERCASE"
+
+// // SOLUTION
+// function uncensor(str, vowels) {
+//   let newStr = "";
+//   for (let i = 0; i < str.length; i++) {
+//     if (str[i] === "*") {
+//       newStr += str[i].replace("*", vowels[0]);
+
+//       vowels = vowels.slice(1);
+//     } else newStr += str[i];
+//   }
+//   return newStr;
+// }
+
+// console.log(uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo"));
+// console.log(uncensor("abcd", ""));
+// console.log(uncensor("*PP*RC*S*", "UEAE"));
+
+//
+//
+//
+// QUESTION 3
+// Your local bank has decided to upgrade its ATM machines by incorporating motion sensor technology. The machines now interpret a series of consecutive dance moves in place of a PIN number.
+
+// Create a program that converts a customer's PIN number to its dance equivalent. There is one dance move per digit in the PIN number. A list of dance moves is given in the code.
+
+// // Notes
+// Each dance move will be selected from a list by index based on the current digit's value plus that digit's index value. If this value is greater than the last index value of the dance list, it should cycle to the beginning of the list.
+// Valid input will always be a string of four digits. Output will be a string array.
+// If the input is not four valid numbers, return the string, "Invalid input."
+
+// Examples
+// danceConvert("0000") ➞ ["Shimmy", "Shake", "Pirouette", "Slide"]
+// danceConvert("3856") ➞ [ "Slide", "Arabesque", "Pop", "Arabesque" ]
+// danceConvert("9999") ➞ [ "Arabesque", "Shimmy", "Shake", "Pirouette" ]
+// danceConvert("32a1") ➞ "Invalid input."
+
+// // SOLUTION
+// const MOVES = [
+//   "Shimmy",
+//   "Shake",
+//   "Pirouette",
+//   "Slide",
+//   "Box Step",
+//   "Headspin",
+//   "Dosado",
+//   "Pop",
+//   "Lock",
+//   "Arabesque",
+// ];
+
+// function danceConvert(pin) {
+//   let dance_output = [];
+//   if (pin.length !== 4) return "Invalid pin";
+
+//   for (let i = 0; i < pin.length; i++) {
+//     let number = i + Number(pin[Number(i)]);
+//     if (number > MOVES.length) number - MOVES.length;
+//     dance_output.push(MOVES[number]);
+//   }
+//   return dance_output;
+// }
+
+// console.log(danceConvert("0000"));
+// console.log(danceConvert("3856"));
+// console.log(danceConvert("9999"));
+// console.log(danceConvert("32a1"));
