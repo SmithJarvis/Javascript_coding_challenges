@@ -472,12 +472,14 @@
 // ];
 
 // function danceConvert(pin) {
+//   if (pin.length !== 4 || /[a-z]/i.test(pin)) return "Invalid pin";
+
 //   let dance_output = [];
-//   if (pin.length !== 4) return "Invalid pin";
 
 //   for (let i = 0; i < pin.length; i++) {
 //     let number = i + Number(pin[Number(i)]);
-//     if (number > MOVES.length) number - MOVES.length;
+//     if (number >= MOVES.length) number -= MOVES.length;
+
 //     dance_output.push(MOVES[number]);
 //   }
 //   return dance_output;
@@ -487,3 +489,148 @@
 // console.log(danceConvert("3856"));
 // console.log(danceConvert("9999"));
 // console.log(danceConvert("32a1"));
+//
+//
+//
+//
+// FEB 23 2023
+//
+//
+//
+// QUESTION 1
+// Write a function that takes an integer n, reverses the binary representation of that integer, and returns the new integer from the reversed binary.
+
+// Examples
+// reversedBinaryInteger(10) ➞ 5
+// // 10 = 1010 -> 0101 = 5
+
+// reversedBinaryInteger(12) ➞ 3
+// // 12 = 1100 -> 0011 = 3
+
+// reversedBinaryInteger(25) ➞ 19
+// // 25 = 11001 -> 10011 = 19
+
+// reversedBinaryInteger(45) ➞ 45
+// // 45 = 101101 -> 101101 = 45
+
+// // SOLUTION
+// function reversedBinaryInteger(num) {
+//   let binary = num.toString(2).split("").reverse().join("");
+//   return parseInt(binary, 2);
+// }
+
+// console.log(reversedBinaryInteger(10));
+// console.log(reversedBinaryInteger(12));
+// console.log(reversedBinaryInteger(25));
+// console.log(reversedBinaryInteger(45));
+
+//
+//
+//
+//
+// QUESTION 2
+// Write a function that takes time t1 and time t2 and returns the numbers of hours passed between the two times.
+
+// Examples
+// hoursPassed("3:00 AM", "9:00 AM") ➞ "6 hours"
+
+// hoursPassed("2:00 PM", "4:00 PM") ➞ "2 hours"
+
+// hoursPassed("1:00 AM", "3:00 PM") ➞ "14 hours"
+// Notes
+// Time t1 will always be the starting time and t2, the ending time.
+// Return the string "No time has passed." if t1 is equal to t2.
+
+// // SOLUTION
+// function _12hrs_to_24hrs(time) {
+//   const part = time.match(/(\d+):(\d+)(?: )?(am|pm)?/i);
+//   let hh = parseInt(part[1], 10);
+//   const mm = parseInt(part[2], 10);
+//   const ap = part[3] ? part[3].toUpperCase() : null;
+//   if (ap === "AM") {
+//     if (hh == 12) {
+//       hh = 0;
+//     }
+//   }
+//   if (ap === "PM") {
+//     if (hh != 12) {
+//       hh += 12;
+//     }
+//   }
+//   return hh;
+// }
+// function hoursPassed(time1, time2) {
+//   const time1_24 = _12hrs_to_24hrs(time1);
+//   const time2_24 = _12hrs_to_24hrs(time2);
+//   return `${time2_24 - time1_24} hours`;
+// }
+
+// console.log(hoursPassed("3:00 AM", "9:00 AM"));
+// console.log(hoursPassed("2:00 PM", "4:00 PM"));
+// console.log(hoursPassed("1:00 AM", "3:00 PM"));
+
+//
+//
+//
+//  QUESTION 3
+// To further increase the statistical knowledge of your fight, count the number of times a certain adjective was used.
+//
+// Given an object that contains several adjectives as values, return a new object where you count the ocurrences of each adjective.
+
+// Examples
+// countNumberOfOccurrences({
+//   a: "moron",
+//   b: "scumbag",
+//   c: "moron",
+//   d: "idiot",
+//   e: "idiot"
+// }) ➞ { moron: 2, scumbag: 1, idiot: 2 }
+
+// countNumberOfOccurrences({
+//   a: "moron",
+//   b: "moron",
+//   c:"moron"
+// }) ➞ { moron: 3 }
+
+// countNumberOfOccurrences({
+//   a: "idiot",
+//   b: "scumbag"
+// }) ➞ { idiot: 1, scumbag: 1 }
+
+// // SOLUTION
+// function countNumberOfOccurrences(obj) {
+//   let output_obj = {};
+//   for (const [key, value] of Object.entries(obj)) {
+//     if (!output_obj[value]) {
+//       output_obj[value] = 1;
+//     } else {
+//       output_obj[value] += 1;
+//     }
+//   }
+//   return output_obj;
+// }
+
+// console.log(
+//   countNumberOfOccurrences({
+//     a: "moron",
+//     b: "scumbag",
+//     c: "moron",
+//     d: "idiot",
+//     e: "idiot",
+//   })
+// );
+
+// console.log(
+//   countNumberOfOccurrences({
+//     a: "moron",
+//     b: "moron",
+//     c: "moron",
+//   })
+// );
+
+// console.log(
+//   countNumberOfOccurrences({
+//     a: "idiot",
+//     b: "scumbag",
+//   })
+// );
