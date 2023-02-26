@@ -236,3 +236,315 @@
 // console.log(returnUnique([1, 9, 8, 8, 7, 6, 1, 6]));
 // console.log(returnUnique([5, 5, 2, 4, 4, 4, 9, 9, 9, 1]));
 // console.log(returnUnique([9, 5, 6, 8, 7, 7, 1, 1, 1, 1, 1, 9, 8]));
+//
+//
+//
+//
+// 26 FEB 2023
+//
+//
+//
+// QUESTION 1
+// Given a sentence as str, return true if any two adjacent words have this property: One word ends with a vowel, while the word immediately after begins with a vowel (a e i o u).
+
+// Examples
+// vowelLinks("a very large appliance") ➞ true
+
+// vowelLinks("go to edabit") ➞ true
+
+// vowelLinks("an open fire") ➞ false
+
+// vowelLinks("a sudden applause") ➞ false
+
+// Notes
+// You can expect sentences in lowercase/uppercase.
+
+// // SOLUTION
+// function vowelLinks(str) {
+//   const vowels = ["a", "e", "i", "o", "u"];
+//   const str_arr = str.toLowerCase().split(" ");
+//   for (let i = 0; i < str_arr.length - 1; i++) {
+//     if (
+//       vowels.includes(str_arr[i][str_arr[i].length - 1]) &&
+//       vowels.includes(str_arr[i + 1][0])
+//     ) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+// console.log(vowelLinks("a very large appliance"));
+// console.log(vowelLinks("go to edabit"));
+// console.log(vowelLinks("an open fire"));
+// console.log(vowelLinks("a sudden applause"));
+//
+//
+//
+// QUESTION 2
+// You are given an input array of bigrams, and an array of words.
+
+// Write a function that returns true if every single bigram from this array can be found at least once in an array of words.
+
+// Examples
+// canFind(["at", "be", "th", "au"], ["beautiful", "the", "hat"]) ➞ true
+
+// canFind(["ay", "be", "ta", "cu"], ["maybe", "beta", "abet", "course"]) ➞ false
+// # "cu" does not exist in any of the words.
+
+// canFind(["th", "fo", "ma", "or"], ["the", "many", "for", "forest"]) ➞ true
+
+// canFind(["oo", "mi", "ki", "la"], ["milk", "chocolate", "cooks"]) ➞ false
+// Notes
+// A bigram is string of two consecutive characters in the same word.
+// If the array of words is empty, return false.
+
+// // SOLUTION
+// function canFind(bigrams, words) {
+//   const sentence = words.join(" ");
+//   for (const bigram of bigrams) {
+//     if (!sentence.includes(bigram)) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(canFind(["at", "be", "th", "au"], ["beautiful", "the", "hat"]));
+// console.log(
+//   canFind(["ay", "be", "ta", "cu"], ["maybe", "beta", "abet", "course"])
+// );
+// console.log(
+//   canFind(["th", "fo", "ma", "or"], ["the", "many", "for", "forest"])
+// );
+// console.log(canFind(["oo", "mi", "ki", "la"], ["milk", "chocolate", "cooks"]));
+//
+//
+//
+//
+// QUESTION 3
+// Write a function that takes an array of arrays and returns the value of all of the symbols in it, where each symbol adds or takes something from the total score. Symbol values:
+
+// # = 5
+// O = 3
+// X = 1
+// ! = -1
+// !! = -3
+// !!! = -5
+// An array of arrays containing 2 #s, a O, and a !!! would equal (0 + 5 + 5 + 3 - 5) 8.
+
+// If the final score is negative, return 0 (e.g. 3 #s, 3 !!s, 2 !!!s and a X would be (0 + 5 + 5 + 5 - 3 - 3 - 3 - 5 - 5 + 1) -3, so return 0.
+
+// Examples
+// checkScore([
+//   ["#", "!"],
+//   ["!!", "X"]
+// ]) ➞ 2
+
+// checkScore([
+//   ["!!!", "O", "!"],
+//   ["X", "#", "!!!"],
+//   ["!!", "X", "O"]
+// ]) ➞ 0
+
+// checkScore([
+//   ["#", "O", "#", "!!", "X", "!!", "#", "O", "O", "!!", "#", "X", "#", "O"],
+//   ["!!!", "!!!", "!!", "!!", "!", "!", "X", "!", "!!!", "O", "!", "!!!", "X", "#"],
+//   ["#", "X", "#", "!!!", "!", "!!", "#", "#", "!!", "X", "!!", "!!!", "X", "O"],
+//   ["!!", "X", "!!", "!!", "!!!", "#", "O", "O", "!!!", "#", "O", "O", "#", "!!"],
+//   ["O", "X", "#", "!", "!", "X", "!!!", "O", "!!!", "!!", "O", "!", "O", "X"],
+//   ["!!", "!!!", "X", "!!!", "!!", "!!", "!!!", "X", "O", "!", "#", "!!", "!!", "!!!"],
+//   ["!!", "!!", "#", "O", "!", "!!", "!", "!!!", "#", "O", "#", "!", "#", "!!"],
+//   ["X", "X", "O", "X", "!!!", "#", "!!!", "!!!", "X", "X", "X", "!", "#", "!!"],
+//   ["O", "!!!", "!", "O", "#", "!", "!", "#", "X", "X", "#", "O", "!!", "!"],
+//   ["X", "!", "!!", "#", "#", "X", "!!", "O", "!!", "X", "X", "!!", "#", "X"],
+//   ["!", "!!", "!!", "O", "!!", "!!", "#", "#", "!", "!!!", "O", "!", "#", "#"],
+//   ["!", "!!!", "!!", "X", "!!", "!!", "#", "!!!", "O", "!!", "!!!", "!", "!", "!"],
+//   ["!!!", "!!!", "!!", "O", "!", "!", "!!!", "!!!", "!!", "!!", "X", "!", "#", "#"],
+//   ["O", "O", "#", "O", "#", "!", "!!!", "X", "X", "O", "!", "!!!", "X", "O"]
+// ]) ➞ 12
+// Notes
+
+// // SOLUTION
+// function checkScore(str) {
+//   let total = 0;
+//   const objSymbol = {
+//     "#": 5,
+//     O: 3,
+//     X: 1,
+//     "!": -1,
+//     "!!": -3,
+//     "!!!": -5,
+//   };
+//   for (const symbol of str.flat(2)) {
+//     total += objSymbol[symbol];
+//   }
+//   return total;
+// }
+
+// console.log(
+//   checkScore([
+//     ["#", "!"],
+//     ["!!", "X"],
+//   ])
+// );
+// console.log(
+//   checkScore([
+//     ["!!!", "O", "!"],
+//     ["X", "#", "!!!"],
+//     ["!!", "X", "O"],
+//   ])
+// );
+// console.log(
+//   checkScore([
+//     ["#", "O", "#", "!!", "X", "!!", "#", "O", "O", "!!", "#", "X", "#", "O"],
+//     [
+//       "!!!",
+//       "!!!",
+//       "!!",
+//       "!!",
+//       "!",
+//       "!",
+//       "X",
+//       "!",
+//       "!!!",
+//       "O",
+//       "!",
+//       "!!!",
+//       "X",
+//       "#",
+//     ],
+//     [
+//       "#",
+//       "X",
+//       "#",
+//       "!!!",
+//       "!",
+//       "!!",
+//       "#",
+//       "#",
+//       "!!",
+//       "X",
+//       "!!",
+//       "!!!",
+//       "X",
+//       "O",
+//     ],
+//     [
+//       "!!",
+//       "X",
+//       "!!",
+//       "!!",
+//       "!!!",
+//       "#",
+//       "O",
+//       "O",
+//       "!!!",
+//       "#",
+//       "O",
+//       "O",
+//       "#",
+//       "!!",
+//     ],
+//     ["O", "X", "#", "!", "!", "X", "!!!", "O", "!!!", "!!", "O", "!", "O", "X"],
+//     [
+//       "!!",
+//       "!!!",
+//       "X",
+//       "!!!",
+//       "!!",
+//       "!!",
+//       "!!!",
+//       "X",
+//       "O",
+//       "!",
+//       "#",
+//       "!!",
+//       "!!",
+//       "!!!",
+//     ],
+//     [
+//       "!!",
+//       "!!",
+//       "#",
+//       "O",
+//       "!",
+//       "!!",
+//       "!",
+//       "!!!",
+//       "#",
+//       "O",
+//       "#",
+//       "!",
+//       "#",
+//       "!!",
+//     ],
+//     [
+//       "X",
+//       "X",
+//       "O",
+//       "X",
+//       "!!!",
+//       "#",
+//       "!!!",
+//       "!!!",
+//       "X",
+//       "X",
+//       "X",
+//       "!",
+//       "#",
+//       "!!",
+//     ],
+//     ["O", "!!!", "!", "O", "#", "!", "!", "#", "X", "X", "#", "O", "!!", "!"],
+//     ["X", "!", "!!", "#", "#", "X", "!!", "O", "!!", "X", "X", "!!", "#", "X"],
+//     [
+//       "!",
+//       "!!",
+//       "!!",
+//       "O",
+//       "!!",
+//       "!!",
+//       "#",
+//       "#",
+//       "!",
+//       "!!!",
+//       "O",
+//       "!",
+//       "#",
+//       "#",
+//     ],
+//     [
+//       "!",
+//       "!!!",
+//       "!!",
+//       "X",
+//       "!!",
+//       "!!",
+//       "#",
+//       "!!!",
+//       "O",
+//       "!!",
+//       "!!!",
+//       "!",
+//       "!",
+//       "!",
+//     ],
+//     [
+//       "!!!",
+//       "!!!",
+//       "!!",
+//       "O",
+//       "!",
+//       "!",
+//       "!!!",
+//       "!!!",
+//       "!!",
+//       "!!",
+//       "X",
+//       "!",
+//       "#",
+//       "#",
+//     ],
+//     ["O", "O", "#", "O", "#", "!", "!!!", "X", "X", "O", "!", "!!!", "X", "O"],
+//   ])
+// );

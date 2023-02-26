@@ -1,8 +1,7 @@
 // FEB 04 2023
-//
-//
-//
+
 // QUESTION 1
+
 // // Reverse a string: Write a function that takes in a string and returns the reversed version of that string. For example, "hello" should return "olleh".
 
 // // SOLUTION
@@ -11,6 +10,7 @@
 //   for (let i = word.length - 1; i >= 0; i--) {
 //     rev += word[i];
 //   }
+
 //   return console.log(rev);
 // }
 
@@ -21,8 +21,7 @@
 // reverseString("coding");
 
 // QUESTION 2
-//
-//
+
 // Caesar Cipher: Write a function that takes a string and a number (the "shift") as arguments and returns a new string with each letter shifted by the number of positions specified. For example, if the shift is 2, the letter "a" would become "c".
 
 // // SOLUTION
@@ -30,6 +29,7 @@
 //   str = str.toLowerCase();
 //   a_to_Z = "abcdefghijklmnopqrstuvwxyz";
 //   cipher = "";
+
 //   // Looping through the str input
 //   for (let i = 0; i < str.length; i++) {
 //     // if Char is not alphabet return empty
@@ -55,16 +55,17 @@
 //
 //
 //
+//
 // FEB 05 2023
-//
-//
-//
+
 // QUESTION 1
+
 // Anagram checker: Write a function that takes two strings as arguments and returns true if they are anagrams (contain the same letters but in a different order), and false otherwise.
 
 // // SOLUTION
 // function anagramChecker(str1, str2) {
 //   if (str1.length !== str2.length) return false;
+
 //   for (let i = 0; i < str1.length; i++) {
 //     for (let j = 0; j < str2.length; j++) {
 //       if (!str1.includes(str2[j])) return false;
@@ -81,10 +82,8 @@
 // console.log(anagramChecker("date", "teda"));
 // console.log(anagramChecker("jarvis", "dot"));
 
-//
-//
-//
 // QUESTION 2
+
 // FizzBuzz: Write a function that takes a number as an argument and returns "Fizz" if the number is divisible by 3, "Buzz" if it's divisible by 5, and "FizzBuzz" if it's divisible by both.
 
 // // SOLUTION
@@ -107,10 +106,8 @@
 // console.log(fizzbizz(90));
 // console.log(fizzbizz("p"));
 
-//
-//
-//
 // QUESTION 3
+
 // Palindrome checker: Write a function that takes a string as an argument and returns true if the string is a palindrome (reads the same forwards and backwards), and false otherwise.
 
 // // SOLUTION
@@ -128,9 +125,8 @@
 // console.log(palindromeChecker("DAD"));
 
 //
-//
-//
 // QUESTION 4
+
 // Two Sum: Write a function that takes an array of numbers and a target sum as arguments and returns the indices of the two numbers in the array that add up to the target sum.
 
 // // SOLUTION
@@ -153,8 +149,8 @@
 
 //
 //
-//
 // QUESTION 5
+
 // Longest common prefix: Write a function that takes an array of strings as an argument and returns the longest common prefix among them.
 
 // // SOLUTION
@@ -178,12 +174,8 @@
 // );
 
 //
-//
-//
 // FEB 07 2023
-//
-// 
-//
+
 // QUESTION 1
 // Array flattening: Write a function that takes an array of nested arrays as an argument and returns a flattened version of the array.
 
@@ -201,14 +193,11 @@
 // flattenArr([[[[[0]], [1]], [[[2], [3]]], [[4], [5]]]]);
 
 //
-//
-//
-//
-//
 // FEB 09 2023
 //
 //
 // QUESTION 1
+//
 // // Create a function that takes an array of numbers and return "Boom!" if the digit 7 appears in the array. Otherwise, return "there is no 7 in the array".
 
 // // Examples
@@ -229,11 +218,10 @@
 // console.log(sevenBoom([8, 6, 33, 100]));
 // console.log(sevenBoom([2, 55, 60, 97, 86]));
 
-//
-//
-//
-//
 // QUESTION 2
+//
+//
+//
 // Your function will be passed two functions, f and g, that don't take any parameters. Your function has to call them, and return a string which indicates which function returned the larger number.
 
 // If f returns the larger number, return the string f.
@@ -260,25 +248,22 @@
 // console.log(whichIsLarger(() => 25,  () => 25) )
 // console.log(whichIsLarger(() => 505050, () => 5050) )
 
-// 
-//
-//
-//
 // QUESTION 3
+//
+//
+//
 // Create a function that returns true if the first array can be nested inside the second and false otherwise.
 
 // arr1 can be nested inside arr2 if:
-
 // arr1's min is greater than arr2's min.
 // arr1's max is less than arr2's max.
+
 // Examples
 // canNest([1, 2, 3, 4], [0, 6]) ➞ true
-
 // canNest([3, 1], [4, 0]) ➞ true
-
 // canNest([9, 9, 8], [8, 9]) ➞ false
-
 // canNest([1, 2, 3, 4], [2, 3]) ➞ false
+//
 
 // // SOLUTION
 // function canNest(arr1, arr2) {
