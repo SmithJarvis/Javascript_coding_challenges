@@ -548,3 +548,113 @@
 //     ["O", "O", "#", "O", "#", "!", "!!!", "X", "X", "O", "!", "!!!", "X", "O"],
 //   ])
 // );
+//
+//
+//
+//
+// FEB 27 2023
+//
+//
+// QUESTION 1
+// Create a function which replaces all the x's in the string in the following ways:
+
+// Replace all x's with "cks" UNLESS:
+
+// The word begins with "x", therefore replace it with "z".
+// The word is just the letter "x", therefore replace it with "ecks".
+// Examples
+// xPronounce("Inside the box was a xylophone") ➞ "Inside the bocks was a zylophone"
+
+// xPronounce("The x ray is excellent") ➞ "The ecks ray is eckscellent"
+
+// xPronounce("OMG x box unboxing video x D") ➞ "OMG ecks bocks unbocksing video ecks D"
+// Notes
+// All x's are lowercase.
+// I know that not all words with x's follow this rule, but there are too many edge cases to count!
+
+// // SOLUTION
+// function xPronounce(str) {
+//   let newStr = "";
+//   for (const word of str.split(" ")) {
+//     if (word[0] === "x" && word.length === 1) {
+//       newStr += word.replace("x", "ecks") + " ";
+//     } else if (word[0] === "x") {
+//       newStr += word.replace("x", "z");
+//     } else if (word.includes("x")) {
+//       newStr += word.replace("x", "cks") + " ";
+//     } else {
+//       newStr += word + " ";
+//     }
+//   }
+//   return newStr;
+// }
+
+// console.log(xPronounce("Inside the box was a xylophone"));
+// console.log(xPronounce("The x ray is excellent"));
+// console.log(xPronounce("OMG x box unboxing video x D"));
+
+//
+//
+//
+// QUESTION 2
+// Create a RegExp myRegExp to test if a string is a valid pin or not.
+
+// A valid pin has:
+
+// Exactly 4 or 6 characters.
+// Only numerical characters (0-9).
+// No whitespace.
+
+// Examples
+// myRegExp.test("1234") ➞ true
+
+// myRegExp.test("45135") ➞ false
+
+// myRegExp.test("89abc1") ➞ false
+
+// myRegExp.test("900876") ➞ true
+
+// myRegExp.test(" 4983") ➞ false
+
+// Notes
+// Empty strings should return false when tested.
+
+// // SOLUTION
+// const myRegExp = new RegExp("^(\\d{4}|\\d{6})$");
+
+// console.log(myRegExp.test("1234"));
+// console.log(myRegExp.test("45135"));
+// console.log(myRegExp.test("89abc1"));
+// console.log(myRegExp.test("900876"));
+// console.log(myRegExp.test(" 4983"));
+
+//
+//
+//
+// QUESTION 3
+// Create a function that takes two "sorted" arrays of numbers and returns an array of numbers which are common to both the input arrays.
+
+// Examples
+// commonElements([-1, 3, 4, 6, 7, 9], [1, 3]) ➞ [3]
+
+// commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10]) ➞ [1, 3, 4, 7]
+
+// commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5]) ➞ [1, 2, 4, 5]
+
+// commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15]) ➞ []
+
+// // SOLUTION
+// function commonElements(arr1, arr2) {
+//   let output_arr = [];
+//   for (const value of arr1) {
+//     if (arr2.includes(value) && !output_arr.includes(value)) {
+//       output_arr.push(value);
+//     }
+//   }
+//   return output_arr;
+// }
+
+// console.log(commonElements([-1, 3, 4, 6, 7, 9], [1, 3]));
+// console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10]));
+// console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5]));
+// console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15]));
