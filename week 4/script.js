@@ -658,3 +658,43 @@
 // console.log(commonElements([1, 3, 4, 6, 7, 9], [1, 2, 3, 4, 7, 10]));
 // console.log(commonElements([1, 2, 2, 2, 3, 4, 5], [1, 2, 4, 5]));
 // console.log(commonElements([1, 2, 3, 4, 5], [10, 12, 13, 15]));
+//
+//
+//
+//
+// FEB 28 2023
+//
+// QUESTION 1
+// // Atticus has been invited to a dinner party, and he decides to purchase a bottle of wine. However, he has little knowledge of how to choose a good bottle. Being a very frugal gentleman (yet disliking looking like a cheapskate), he decides to use a very simple rule. In any selection of two or more wines, he will always buy the second-cheapest.
+
+// Given an array of wine objects, write a function that returns the name of the wine he will buy for the party. If given an empty array, return null. If given an array of only one, Atticus will buy that wine.
+
+// Examples
+// chosenWine([
+//   { name: "Wine A", price: 8.99 },
+//   { name: "Wine 32", price: 13.99 },
+//   { name: "Wine 9", price: 10.99 }
+// ]) ➞ "Wine 9"
+
+// chosenWine([{ name: "Wine A", price: 8.99 }]) ➞ "Wine A"
+
+// chosenWine([]) ➞ null
+
+// // SOLUTION
+// function chosenWine(wines) {
+//   if (wines.length === 0) return null;
+//   let secondCheapest = "";
+//   for (const key of Object.entries(...wines)) {
+//     console.log(key);
+//   }
+// }
+
+// console.log(
+//   chosenWine([
+//     { name: "Wine A", price: 8.99 },
+//     { name: "Wine 32", price: 13.99 },
+//     { name: "Wine 9", price: 10.99 },
+//   ])
+// );
+// console.log(chosenWine([{ name: "Wine A", price: 8.99 }]));
+// console.log(chosenWine([]));
