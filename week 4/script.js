@@ -682,10 +682,14 @@
 
 // // SOLUTION
 // function chosenWine(wines) {
-//   if (wines.length === 0) return null;
-//   let secondCheapest = "";
-//   for (const key of Object.entries(...wines)) {
-//     console.log(key);
+//   if (wines.length === 0) {
+//     return null;
+//   } else if (wines.length === 1) {
+//     return wines[0].name;
+//   } else {
+//     wines.sort((a, b) => a.price - b.price);
+
+//     return wines[1].name;
 //   }
 // }
 
@@ -698,3 +702,183 @@
 // );
 // console.log(chosenWine([{ name: "Wine A", price: 8.99 }]));
 // console.log(chosenWine([]));
+//
+//
+//
+// QUESTION 2
+// Create a function that returns true if there's at least one prime number in the given range (n1 to n2 (inclusive)), false otherwise.
+
+// Examples
+// primeInRange(10, 15) ➞ true
+// // Prime numbers in range: 11, 13
+
+// primeInRange(62, 66) ➞ false
+// // No prime numbers in range.
+
+// primeInRange(3, 5) ➞ true
+// // Prime numbers in range: 3, 5
+
+// Notes
+// n2 is always greater than n1.
+
+// // SOLUTION
+// function isPrime(num) {
+//   if (num <= 1) {
+//     return false;
+//   }
+//   for (let i = 2; i <= Math.sqrt(num); i++) {
+//     if (num % i === 0) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// function primeInRange(n1, n2) {
+//   for (let i = n1; i <= n2; i++) {
+//     if (isPrime(i)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+// console.log(primeInRange(10, 15));
+// console.log(primeInRange(62, 66));
+// console.log(primeInRange(3, 5));
+
+//
+//
+//
+// QUESTION 3
+// Given a date, return how many days date is away from 2021 (end date not included). date will be in mm/dd/yyyy format.
+
+// Examples
+// daysUntil2021("12/28/2020") ➞ "3 days"
+
+// daysUntil2021("1/1/2020") ➞ "366 days"
+
+// daysUntil2021("2/28/2020") ➞ "308 days"
+// Notes
+// All given dates will be in the year 2020.
+
+// // SOLUTION
+// function daysUntil2021(date) {
+//   const date1 = new Date(date);
+//   const date2 = new Date("1/1/2021")
+
+//   diff = Math.floor((date2 - date1) / (1000 * 60 * 60 * 24));
+
+//   console.log(`${diff} days`);
+// }
+
+// console.log(daysUntil2021("12/28/2020"));
+// console.log(daysUntil2021("1/1/2020"));
+// console.log(daysUntil2021("2/28/2020"));
+
+//
+//
+//
+//
+//
+// MAR 01 2023
+//
+//
+// QUESTION 1
+//Create a function that, given a string with at least three characters, returns an array of its:
+
+// Length.
+// First character.
+// Last character.
+// Middle character, if the string has an odd number of characters. Middle TWO characters, if the string has an even number of characters.
+// Index of the second occurrence of the second character in the format "@ index #" and "not found" if the second character doesn't occur again.
+// Examples
+// allAboutStrings("LASA") ➞ [4, "L", "A", "AS", "@ index 3"]
+
+// allAboutStrings("Computer") ➞ [8, "C", "r", "pu", "not found"]
+
+// allAboutStrings("Science") ➞ [7, "S", "e", "e", "@ index 5"]
+
+// // SOLUTION
+// function allAboutStrings(str) {
+//   const length = str.length;
+//   const firstChar = str[0];
+//   const lastChar = str[length - 1];
+//   const middleChars =
+//     length % 2 === 0
+//       ? str.slice(length / 2 - 1, length / 2 + 1)
+//       : str[Math.floor(length / 2)];
+//   const secondChar = str[1];
+//   const secondCharIndex = str.indexOf(secondChar, 2);
+//   const secondCharIndexStr =
+//     secondCharIndex !== -1 ? `@ index ${secondCharIndex}` : "not found";
+
+//   return [length, firstChar, lastChar, middleChars, secondCharIndexStr];
+// }
+
+// console.log(allAboutStrings("LASA"));
+// console.log(allAboutStrings("Computer"));
+// console.log(allAboutStrings("Science"));
+
+//
+//
+//
+// QUESTION 2
+// Write a function that takes a positive integer num and calculates how many dots exist in a pentagonal shape around the center dot on the Nth iteration.
+
+// In the image below you can see the first iteration is only a single dot. On the second, there are 6 dots. On the third, there are 16 dots, and on the fourth there are 31 dots.
+
+// alt text
+
+// Return the number of dots that exist in the whole pentagon on the Nth iteration.
+
+// Examples
+// pentagonal(1) ➞ 1
+
+// pentagonal(2) ➞ 6
+
+// pentagonal(3) ➞ 16
+
+// pentagonal(8) ➞ 141
+
+// // SOLUTION
+// function pentagonal(num) {
+//   return (5 * num * num - 5 * num + 2) / 2;
+// }
+
+// console.log(pentagonal(1));
+// console.log(pentagonal(2));
+// console.log(pentagonal(3));
+// console.log(pentagonal(8));
+
+//
+//
+//
+//
+// QUESTION 3
+// // Create a function that converts Celsius to Fahrenheit and vice versa.
+
+// Examples
+// convert("35°C") ➞ "95°F"
+
+// convert("19°F") ➞ "-7°C"
+
+// convert("33") ➞ "Error"
+// Notes
+// Round to the nearest integer.
+// If the input is incorrect, return "Error".
+
+// // SOLUTION
+// function convert(deg) {
+//   if (!deg.includes("°")) return "Error";
+//   const splitdegree = deg.split("°");
+//   let num = Number(splitdegree[0]);
+
+//   return splitdegree[1] === "C"
+//     ? `${Math.floor(num * 9) / 5 + 32}°F`
+//     : `${Math.ceil(((num - 32) * 5) / 9)}°C`;
+// }
+
+// console.log(convert("35°C"));
+// console.log(convert("19°F"));
+// console.log(convert("33"));
