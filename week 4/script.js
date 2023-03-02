@@ -882,3 +882,102 @@
 // console.log(convert("35°C"));
 // console.log(convert("19°F"));
 // console.log(convert("33"));
+//
+//
+//
+//
+//
+// MAR 02 2023
+//
+//
+// QUESTION 1
+// In this challenge, you are given an array and in turn, you must obtain a smaller array, following three steps:
+
+// Split the array into two parts of equal length. If the given array has an odd length, then you have to eliminate the number in the middle of the array for obtaining two equal parts.
+// Sum each number of the first part with each number of the reversed second part, obtaining a new single array having the same length of the previous two.
+// Divide by two each number in the final array.
+// Given an array of integers arr, implement a function that returns a new array applying the above algorithm.
+
+// Examples
+// antipodesAverage([1, 2, 3, 4]) ➞ [2.5, 2.5]
+// // Left part = [1, 2]
+// // Reversed right part = [4, 3]
+// // Array resulting from the sum of each pair = [5, 5]
+// // Each number is divided by two = [2.5, 2.5]
+
+// antipodesAverage([1, 2, 3, 4, 5]) ➞ [3, 3]
+// // The length of array is odd, number 3 (in the middle) is eliminated
+// // Left = [1, 2]
+// // Reversed right = [5, 4]
+// // Sum = [6, 6]
+// // Division by two = [3, 3]
+
+// antipodesAverage([-1, -2]) ➞ [-1.5]
+// //  (-1 + -2) / 2 = [-1.5]
+
+// Notes
+// Every given arr will contain at least two numbers.
+// Into the given arr, numbers will always be whole (either positives or negatives), but the numbers into the returned final array can also be a float (either positives or negatives, see the examples #1 and #3).
+// You can do three separated steps, or thinking about how the algorithm can be synthesized for obtaining the result.
+
+// // SOLUTION
+// function antipodesAverage(arr) {
+//   const length = arr.length;
+//   const midpoint = Math.floor(length / 2);
+
+//   // Split the array into two parts of equal length
+//   const left = arr.slice(0, midpoint);
+//   const right = arr.slice(midpoint + (length % 2 === 0 ? 0 : 1)).reverse();
+
+//   // Sum each number of the first part with each number of the reversed second part
+//   const sum = left.map((num, i) => num + right[i]);
+
+//   // Divide by two each number in the final array
+//   const result = sum.map((num) => num / 2);
+
+//   return result;
+// }
+
+// console.log(antipodesAverage([1, 2, 3, 4]));
+// console.log(antipodesAverage([1, 2, 3, 4, 5]));
+// console.log(antipodesAverage([-1, -2]));
+//
+//
+//
+//
+// QUESTION 2
+// Create a function to partition an array from left to right.
+
+// Examples
+// movingPartition([-1, -1, -1, -1])
+// ➞ [[[-1], [-1, -1, -1]], [[-1, -1], [-1, -1]], [[-1, -1, -1], [-1]]]
+
+// movingPartition([1, 2, 3, 4, 5])
+// ➞ [[[1], [2, 3, 4, 5]], [[1, 2], [3, 4, 5]], [[1, 2, 3], [4, 5]], [[1, 2, 3, 4], [5]]]
+
+// movingPartition([]) ➞ []
+// Notes
+// With an n input, your output should be an array containing n-1 subarrays. Each subarray should have two elements: the left and the right side of the partition (both should be non-empty, unless the input array is empty).
+// An empty array should return an empty array: []
+
+// SOLUTION
+
+// function movingPartition(arr) {
+//   let output = [];
+//   for (let i = 0; i < arr.length - 1; i++) {
+//     first_arr = arr.slice(0, i + 1);
+//     second_arr = arr.slice(i + 1);
+//     output.push(first_arr, second_arr);
+//   }
+//   return output;
+// }
+//
+// console.log(movingPartition([-1, -1, -1, -1]));
+// console.log(movingPartition([1, 2, 3, 4, 5]));
+// console.log(movingPartition([]));
+//
+//
+//
+// QUESTION 3
+//
+// SOLUTION
