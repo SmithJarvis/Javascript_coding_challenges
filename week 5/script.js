@@ -6,12 +6,10 @@
 
 // Examples
 // countLoneOnes(101) ➞ 2
-
 // countLoneOnes(1191) ➞ 1
-
 // countLoneOnes(1111) ➞ 0
-
 // countLoneOnes(462) ➞ 0
+
 // Notes
 // Tests will include positive whole numbers only.
 
@@ -51,7 +49,6 @@
 // [[1, 2, 3, 4, 5], [2, 4, 6, 8, 10], [3, 6, 9, 12, 15], [4, 8, 12, 16, 20], [5, 10, 15, 20, 25]]
 // Examples
 // multiplicationTable(1) ➞ [[1]]
-
 // multiplicationTable(3) ➞ [[1, 2, 3], [2, 4, 6], [3, 6, 9]]
 
 // // SOLUTION
@@ -80,10 +77,9 @@
 
 // Examples
 // integral(0, 2, 5) ➞ 3
-
 // integral(2, 4, 7) ➞ 279
-
 // integral(5, 9, 3) ➞ -530712
+
 // Notes
 // ^ in the context of this challenge means "to the power of", also known as the "exponent" operator.
 // Assume that b will be an integer greater than or equal to 0.
@@ -96,3 +92,13 @@
 // console.log(integral(0, 2, 5));
 // console.log(integral(2, 4, 7));
 // console.log(integral(5, 9, 3));
+
+
+MAR 04 2023
+//
+//
+//
+//
+//QUESTION 1
+//
+// SOLUTION
