@@ -241,3 +241,112 @@
 // console.log(firstRepeat("Gandalf"));
 // console.log(firstRepeat("Balrog"));
 // console.log(firstRepeat("Isildur"));
+
+//
+//
+//
+//
+// MAR 05 2023
+//
+// QUESTION 1
+// Write a function that divides an array into chunks of size n, where n is the length of each chunk.
+
+// Examples
+// chunkify([2, 3, 4, 5], 2) ➞ [[2, 3], [4, 5]]
+
+// chunkify([2, 3, 4, 5, 6], 2) ➞ [[2, 3], [4, 5], [6]]
+
+// chunkify([2, 3, 4, 5, 6, 7], 3) ➞ [[2, 3, 4], [5, 6, 7]]
+
+// chunkify([2, 3, 4, 5, 6, 7], 1) ➞ [[2], [3], [4], [5], [6], [7]]
+
+// chunkify([2, 3, 4, 5, 6, 7], 7) ➞ [[2, 3, 4, 5, 6, 7]]
+
+// Notes
+// It's O.K. if the last chunk is not completely filled (see example #2).
+// Integers will always be single-digit.
+
+// // SOLUTION
+// function chunkify(arr, size) {
+//   let new_arr = [];
+//   if (!arr || arr.length <= size) return [arr];
+
+//   for (let i = 0; i < arr.length; i += size) {
+//     chunk = arr.slice(i, size + i);
+//     new_arr.push([chunk]);
+//   }
+//   return new_arr;
+// }
+// console.log(chunkify([2, 3, 4, 5], 2));
+// console.log(chunkify([2, 3, 4, 5, 6], 2));
+// console.log(chunkify([2, 3, 4, 5, 6, 7], 3));
+// console.log(chunkify([2, 3, 4, 5, 6, 7], 1));
+// console.log(chunkify([2, 3, 4, 5, 6, 7], 7));
+//
+//
+//
+//
+//  QUESTION 2
+// Given an array nums where each integer is between 1 and 100, return a sorted array containing only duplicate numbers from the given nums array.
+
+// Examples
+// duplicateNums([1, 2, 3, 4, 3, 5, 6]) ➞ [3]
+
+// duplicateNums([81, 72, 43, 72, 81, 99, 99, 100, 12, 54]) ➞ [72, 81, 99]
+
+// duplicateNums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) ➞ null
+// Notes
+// The given array won't contain the same number three times.
+
+// // SOLUTION
+// function duplicateNums(nums) {
+//   let new_arr = [];
+//   output_arr = [];
+//   for (let i = 0; i < nums.length - 1; i++) {
+//     if (new_arr.includes(nums[i])) {
+//       new_arr.push(nums[i]);
+//       output_arr.push(nums[i]);
+//     } else {
+//       new_arr.push(nums[i]);
+//     }
+//   }
+//   return output_arr;
+// }
+// console.log(duplicateNums([1, 2, 3, 4, 3, 5, 6]));
+// console.log(duplicateNums([81, 72, 43, 72, 81, 99, 99, 100, 12, 54]));
+// console.log(duplicateNums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+//
+//
+//
+// QUESTION 3
+// Write a function that returns true if two arrays, when combined, form a consecutive sequence. A consecutive sequence is a sequence without any gaps in the integers, e.g. 1, 2, 3, 4, 5 is a consecutive sequence, but 1, 2, 4, 5 is not.
+
+// Examples
+// consecutiveCombo([7, 4, 5, 1], [2, 3, 6]) ➞ true
+
+// consecutiveCombo([1, 4, 6, 5], [2, 7, 8, 9]) ➞ false
+
+// consecutiveCombo([1, 4, 5, 6], [2, 3, 7, 8, 10]) ➞ false
+
+// consecutiveCombo([44, 46], [45]) ➞ true
+// Notes
+// The input arrays will have unique values.
+// The input arrays can be in any order.
+
+// // SOLUTION
+// function consecutiveCombo(arr1, arr2) {
+//   let new_arr = [...arr1, ...arr2];
+//   new_arr.sort(function (a, b) {
+//     return a - b;
+//   });
+
+//   for (let i = 0; i < new_arr.length - 1; i++) {
+//     if (new_arr[i] + 1 !== new_arr[i + 1]) return false;
+//   }
+//   return true;
+// }
+
+// console.log(consecutiveCombo([7, 4, 5, 1], [2, 3, 6]));
+// console.log(consecutiveCombo([1, 4, 6, 5], [2, 7, 8, 9]));
+// console.log(consecutiveCombo([1, 4, 5, 6], [2, 3, 7, 8, 10]));
+// console.log(consecutiveCombo([44, 46], [45]));
