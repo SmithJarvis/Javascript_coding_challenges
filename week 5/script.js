@@ -93,12 +93,151 @@
 // console.log(integral(2, 4, 7));
 // console.log(integral(5, 9, 3));
 
+// MAR 04 2023
+//
+//
+//
+//
+//
+// QUESTION 1
+//
+//
+// There are many different styles of music and many albums exhibit
+// multiple styles. Create a function that takes an array of musical
+//  styles from albums and returns how many styles are unique.
 
-MAR 04 2023
+// Examples
+// uniqueStyles([
+//   "Dub,Dancehall",
+//   "Industrial,Heavy Metal",
+//   "Techno,Dubstep",
+//   "Synth-pop,Euro-Disco",
+//   "Industrial,Techno,Minimal"
+// ]) ➞ 9
+
+// uniqueStyles([
+//   "Soul",
+//   "House,Folk",
+//   "Trance,Downtempo,Big Beat,House",
+//   "Deep House",
+//   "Soul"
+// ]) ➞ 7
+
+// // SOLUTION
+// function uniqueStyles(arr){
+//   let unique=new Set(arr.join(',').split(','))
+//   return unique.size
+
+// }
+
+// console.log
+// (uniqueStyles([
+//   "Dub,Dancehall",
+//   "Industrial,Heavy Metal",
+//   "Techno,Dubstep",
+//   "Synth-pop,Euro-Disco",
+//   "Industrial,Techno,Minimal"
+// ]) )
+
+// console.log
+// (uniqueStyles([
+//   "Soul",
+//   "House,Folk",
+//   "Trance,Downtempo,Big Beat,House",
+//   "Deep House",
+//   "Soul"
+// ]))
 //
 //
 //
+// QUESTION 2
+// Make a function that encrypts a given input with these steps:
+
+// Input: "apple"
+
+// Step 1: Reverse the input: "elppa"
+
+// Step 2: Replace all vowels using the following chart:
+
+// a => 0
+// e => 1
+// i => 2
+// o => 2
+// u => 3
+
+// // "1lpp0"
+// Step 3: Add "aca" to the end of the word: "1lpp0aca"
+
+// Output: "1lpp0aca"
+
+// Examples
+// encrypt("banana") ➞ "0n0n0baca"
+
+// encrypt("karaca") ➞ "0c0r0kaca"
+
+// encrypt("burak") ➞ "k0r3baca"
+
+// encrypt("alpaca") ➞ "0c0pl0aca"
+// Notes
+// All inputs are strings, no uppercases and all output must be strings.
+
+// // SOLUTION
+// function encrypt(word) {
+//   let reversedWrd = word.split("").reverse().join("");
+//   let replaced = "";
+//   const vowel = {
+//     a: 0,
+//     e: 1,
+//     i: 2,
+//     o: 2,
+//     u: 3,
+//   };
+
+//   for (let i = 0; i < reversedWrd.length; i++) {
+//     if (vowel[reversedWrd[i]] !== undefined) {
+//       let ltr = vowel[reversedWrd[i]];
+//       replaced += ltr;
+//     } else replaced += reversedWrd[i];
+//   }
+
+//   return replaced + "aca";
+// }
+
+// console.log(encrypt("banana"));
+// console.log(encrypt("karaca"));
+// console.log(encrypt("burak"));
+// console.log(encrypt("alpaca"));
 //
-//QUESTION 1
 //
-// SOLUTION
+//
+// QUESTION 3
+// Create a function that takes a string and returns the first character that repeats. If there is no repeat of a character, return "-1".
+
+// Examples
+// firstRepeat("legolas") ➞ "l"
+
+// firstRepeat("Gandalf") ➞ "a"
+
+// firstRepeat("Balrog") ➞ "-1"
+
+// firstRepeat("Isildur") ➞ "-1"
+// // Case sensitive "I" not equal to "i"
+// Notes
+// Tests are case sensitive.
+
+// // SOLUTION
+// function firstRepeat(chars) {
+//   let obj = {};
+//   for (let ch of [...chars]) {
+//     if (obj[ch]) {
+//       return ch;
+//     } else {
+//       obj[ch] = 1;
+//     }
+//   }
+//   return "-1";
+// }
+// console.log(firstRepeat("legolas"));
+// console.log(firstRepeat("Gandalf"));
+// console.log(firstRepeat("Balrog"));
+// console.log(firstRepeat("Isildur"));
