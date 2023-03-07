@@ -350,3 +350,303 @@
 // console.log(consecutiveCombo([1, 4, 6, 5], [2, 7, 8, 9]));
 // console.log(consecutiveCombo([1, 4, 5, 6], [2, 3, 7, 8, 10]));
 // console.log(consecutiveCombo([44, 46], [45]));
+//
+//
+//
+//
+// MAR 06 2023
+//
+//
+// QUESTION 1
+// Mubashir needs your help to find out the next happy year.
+
+// A Happy Year is the year with only distinct digits. Create a function that takes an integer year and returns the next happy year.
+
+// Examples
+// happyYear(2017) ➞ 2018
+// // 2018 has all distinct digits
+
+// happyYear(1990) ➞ 2013
+
+// happyYear(2021) ➞ 2031
+
+// // SOLUTION
+// function happyYear(year) {
+//   let final_year;
+//   while (year) {
+//     year += 1;
+//     final_year = String(year);
+//     let newSet = new Set(final_year);
+//     if (newSet.size === final_year.length) return final_year;
+//   }
+//   return final_year;
+// }
+
+// console.log(happyYear(2017));
+// console.log(happyYear(1990));
+// console.log(happyYear(2021));
+// console.log(happyYear(20000));
+//
+//
+//
+//
+// QUESTION 2
+// In this challenge, you have to obtain a sentence from the elements of a given matrix. In the matrix, each word of the sentence follows a columnar order from the top to the bottom, instead of the usual left-to-right order: it's time for transposition!
+
+// Given a matrix mtx, implement a function that returns the complete sentence as a string, with the words separated by a space between them.
+
+// Examples
+// transposeMatrix([
+//   ["Enter"],
+//   ["the"],
+//   ["Matrix!"]
+// ]) ➞ "Enter the Matrix!"
+
+// transposeMatrix([
+//   ["The", "are"],
+//   ["columns", "rows."]
+// ]) ➞ "The columns are rows."
+
+// transposeMatrix([
+//   ["You", "the"],
+//   ["must", "table"],
+//   ["transpose", "order."]
+// ]) ➞ "You must transpose the table order."
+// Notes
+// All given matrices are regular, as to say that each column has the same length.
+// Punctuation is already given, you just have to add the spaces in the returned string.
+
+// // SOLUTION
+// function transposeMatrix(mtx) {
+//   return mtx.flat(1).join(" ");
+// }
+
+// console.log(transposeMatrix([["Enter"], ["the"], ["Matrix!"]]));
+// console.log(
+//   transposeMatrix([
+//     ["The", "are"],
+//     ["columns", "rows."],
+//   ])
+// );
+// console.log(
+//   transposeMatrix([
+//     ["You", "the"],
+//     ["must", "table"],
+//     ["transpose", "order."],
+//   ])
+// );
+//
+//
+//
+//
+// QUESTION 3
+// Create a function that returns the sum of missing numbers.
+
+// Examples
+// sumMissingNumbers([1, 3, 5, 7, 10]) ➞ 29
+// // 2 + 4 + 6 + 8 + 9
+
+// sumMissingNumbers([10, 7, 5, 3, 1]) ➞ 29
+
+// sumMissingNumbers([10, 20, 30, 40, 50, 60]) ➞ 1575
+
+// Notes
+// The minimum and maximum value of the given array are the inclusive bounds of the numeric range to consider when searching for missing numbers.
+
+// // SOLUTION
+// function sumMissingNumbers(arr) {
+//   const min_value = Math.min(...arr);
+//   const max_value = Math.max(...arr);
+//   let sum = 0;
+
+//   for (let i = min_value; i < max_value; i++) {
+//     if (!arr.includes(i)) sum += i;
+//   }
+//   return sum;
+// }
+
+// console.log(sumMissingNumbers([1, 3, 5, 7, 10]));
+// console.log(sumMissingNumbers([10, 7, 5, 3, 1]));
+// console.log(sumMissingNumbers([10, 20, 30, 40, 50, 60]));
+//
+//
+//
+//
+//
+//
+// MAR 7 2023
+//
+//
+// QUESTION  1
+// Create a function that returns true if smaller arrays can concatenate to form the target array and false otherwise.
+
+// Examples
+// canConcatenate([[1, 2, 3, 4], [5, 6], [7]], [1, 2, 3, 4, 5, 6, 7]) ➞ true
+
+// canConcatenate([[2, 1, 3], [5, 4, 7, 6]], [7, 6, 5, 4, 3, 2, 1]) ➞ true
+
+// canConcatenate([[2, 1, 3], [5, 4, 7, 6, 7]], [1, 2, 3, 4, 5, 6, 7]) ➞ false
+// // Duplicate 7s not found in target array.
+
+// canConcatenate([[2, 1, 3], [5, 4, 7]], [1, 2, 3, 4, 5, 6, 7]) ➞ false
+// // Missing 6 from target array.
+
+// Notes
+// Arrays do not have to be sorted (see example #2).
+// Arrays should concatenate to create the final array exactly (see examples #3 and #4).
+
+// // SOLUTION
+// function canConcatenate(arr, target) {
+//   let flat_arr = arr.flat(10).sort();
+//   if (flat_arr.length !== target.length) return false;
+//   let flat_arr2 = flat_arr;
+
+//   target.sort();
+
+//   for (let i = 0; i < flat_arr2.length - i; i++) {
+//     if (flat_arr2[i] !== target[i]) return false;
+//   }
+
+//   return true;
+// }
+
+// console.log(canConcatenate([[1, 2, 3, 4], [5, 6], [7]], [1, 2, 3, 4, 5, 6, 7]));
+// console.log(
+//   canConcatenate(
+//     [
+//       [2, 1, 3],
+//       [5, 4, 7, 6],
+//     ],
+//     [7, 6, 5, 4, 3, 2, 1]
+//   )
+// );
+// console.log(
+//   canConcatenate(
+//     [
+//       [2, 1, 3],
+//       [5, 4, 7, 6, 7],
+//     ],
+//     [1, 2, 3, 4, 5, 6, 7]
+//   )
+// );
+// console.log(
+//   canConcatenate(
+//     [
+//       [2, 1, 3],
+//       [5, 4, 7],
+//     ],
+//     [1, 2, 3, 4, 5, 6, 7]
+//   )
+// );
+// console.log(
+//   canConcatenate(
+//     [[[[9, [[[1]]]]]], [2, 1, 3], [5, 4, 7]],
+//     [1, 2, 3, 4, 5, 6, 9, 1, 7]
+//   )
+// );
+//
+//
+//
+// QUESTION 2
+// Given a string, return a sorted array of words formed from the first three letters, then the next three letters, shifting by only one.
+
+// Worked Example
+// threeLetterCollection("edabit") ➞ ["abi", "bit", "dab", "eda"]
+// // 1st word: "eda"
+// // 2nd word: "dab"
+// // 3rd word: "abi"
+// // 4th word: "bit"
+// // Remember to sort the array!
+// Examples
+// threeLetterCollection("slap") ➞ ["lap", "sla"]
+
+// threeLetterCollection("click") ➞ ["cli", "ick", "lic"]
+
+// threeLetterCollection("cat") ➞ ["cat"]
+
+// threeLetterCollection("hi") ➞ []
+
+// Notes
+// Return an empty array if given a word with less than 3 letters.
+
+// // SOLUTION
+// function threeLetterCollection(s) {
+//   let output_arr = [];
+//   for (let i = 0; i < s.length - 1; i++) {
+//     let three_alpha = s.slice(i, i + 3);
+//     if (three_alpha.length === 3) output_arr.push(three_alpha);
+//   }
+//   return output_arr.sort();
+// }
+
+// console.log(threeLetterCollection("edabit"));
+// console.log(threeLetterCollection("slap"));
+// console.log(threeLetterCollection("click"));
+// console.log(threeLetterCollection("cat"));
+// console.log(threeLetterCollection("hi"));
+//
+//
+//
+// QUESTION 3
+// Unfair hurdles are hurdles which are either too high, or way too close together.
+
+// Create a function which takes in an array of strings, representing hurdles, and returns whether or not they are unfair. For the purposes of this challenge, unfair hurdles are:
+
+// At least 4 characters tall.
+// Strictly less than 4 spaces apart.
+// Examples
+// // Hurdle are good distance apart but are way too tall.
+
+// isUnfairHurdle([
+//   "#    #    #    #",
+//   "#    #    #    #",
+//   "#    #    #    #",
+//   "#    #    #    #"
+// ]) ➞ true
+
+// // Hurdles are a fine height but are way too close together.
+
+// isUnfairHurdle([
+//   "#  #  #  #",
+//   "#  #  #  #",
+//   "#  #  #  #"
+// ]) ➞ true
+
+// // These hurdles are mighty splendid.
+
+// isUnfairHurdle([
+//   "#      #      #      #",
+//   "#      #      #      #"
+// ]) ➞ false
+
+// Notes
+// Hurdles will be represented with a hashtag "#".
+// There will be the same spacing between hurdles.
+// Hurdles are always as high as the length of the array.
+// Hurdles are always evenly spaced.
+
+// // SOLUTION
+// function isUnfairHurdle(hurdles) {
+//   for (let i = 0; i < hurdles.length - 1; i++) {
+//     if (hurdles[i + 1] && hurdles[i - 1]) {
+//       if (
+//         hurdles[i].length !== hurdles[i + 1].length ||
+//         hurdles[i].length !== hurdles[i - 1].length
+//       )
+//         return false;
+//     }
+//   }
+//   return true;
+// }
+// console.log(
+//   isUnfairHurdle([
+//     "#    #    #    #",
+//     "#    #    #    #",
+//     "#    #    #    #",
+//     "#    #    #    #",
+//   ])
+// );
+// console.log(isUnfairHurdle(["#  #  #  #", "#  #  #  #", "#  #  #  #"]));
+// console.log(
+//   isUnfairHurdle(["#      #      #      #", "#      #      #      #"])
+// );
