@@ -627,15 +627,15 @@
 
 // // SOLUTION
 // function isUnfairHurdle(hurdles) {
-//   for (let i = 0; i < hurdles.length - 1; i++) {
-//     if (hurdles[i + 1] && hurdles[i - 1]) {
-//       if (
-//         hurdles[i].length !== hurdles[i + 1].length ||
-//         hurdles[i].length !== hurdles[i - 1].length
-//       )
-//         return false;
+//   for (let i = 0; i < hurdles.length; i++) {
+//     hurdles_set = new Set(hurdles[i]);
+//     if (hurdles_set.size !== 2) return false;
+
+//     if (hurdles[i] && hurdles[i + 1]) {
+//       if (hurdles[i].length !== hurdles[i + 1].length) return false;
 //     }
 //   }
+
 //   return true;
 // }
 // console.log(
@@ -650,3 +650,149 @@
 // console.log(
 //   isUnfairHurdle(["#      #      #      #", "#      #      #      #"])
 // );
+// console.log(
+//   isUnfairHurdle(["#      *      #      #", "#      #      #      #"])
+// );
+//
+//
+//
+//
+//
+//
+// MAR 08 2023
+//
+// QUESTION 1
+//
+// Abigail and Benson are playing Rock, Paper, Scissors.
+
+// Each game is represented by an array of length 2, where the first element represents what Abigail played and the second element represents what Benson played.
+
+// Given a sequence of games, determine who wins the most number of matches. If they tie, output "Tie".
+
+// R stands for Rock
+// P stands for Paper
+// S stands for Scissors
+// Examples
+// calculateScore([["R", "P"], ["R", "S"], ["S", "P"]]) ➞ "Abigail"
+
+// // Benson wins the first game (Paper beats Rock).
+// // Abigail wins the second game (Rock beats Scissors).
+// // Abigail wins the third game (Scissors beats Paper).
+// // Abigail wins 2/3.
+
+// calculateScore([["R", "R"], ["S", "S"]]) ➞ "Tie"
+
+// calculateScore([["S", "R"], ["R", "S"], ["R", "R"]]) ➞ "Tie"
+
+// // SOLUTION
+// function calculateScore(games) {
+//   let abi_win = 0;
+//   let draw = 0;
+//   let abi_lose = 0;
+//   for (const game of games) {
+//     if (game[0] === game[1]) draw += 1;
+//     if (game[0] === "R" && game[1] === "P") abi_lose += 1;
+//     if (game[0] === "R" && game[1] === "S") abi_win += 1;
+//     if (game[0] === "S" && game[1] === "P") abi_win += 1;
+//     if (game[0] === "S" && game[1] === "R") abi_lose += 1;
+//     if (game[0] === "P" && game[1] === "S") abi_lose += 1;
+//     if (game[0] === "P" && game[1] === "R") abi_win += 1;
+//   }
+//   if (abi_win > abi_lose && abi_win > draw) return "Abigail";
+//   if (abi_win < abi_lose && abi_win < draw) return "Benson";
+//   if (draw > abi_lose && draw > abi_win) return "Tie";
+//   if (draw === abi_lose && draw === abi_win) return "Tie";
+// }
+
+// console.log(
+//   calculateScore([
+//     ["R", "P"],
+//     ["R", "S"],
+//     ["S", "P"],
+//   ])
+// );
+// console.log(
+//   calculateScore([
+//     ["R", "R"],
+//     ["S", "S"],
+//   ])
+// );
+// console.log(
+//   calculateScore([
+//     ["S", "R"],
+//     ["R", "S"],
+//     ["R", "R"],
+//   ])
+// );
+//
+//
+//
+//
+// QUESTION 2
+// Create a function that takes a number and returns one digit that is the result of summing all the digits of the input number. When the sum of the digits consists of more than one digit, repeat summing until you get one digit.
+
+// Examples
+// rootDigit(123) ➞ 6
+// // 1 + 2 + 3 = 6
+
+// rootDigit(999888777) ➞ 9
+
+// rootDigit(1238763636555555555555) ➞ 6
+
+// // SOLUTION
+// function rootDigit(num) {
+//   if (num < 10) {
+//     return num;
+//   }
+//   let sum = 0;
+//   while (num > 0) {
+//     sum += num % 10;
+//     num = Math.floor(num / 10);
+//   }
+//   return rootDigit(sum);
+// }
+
+// console.log(rootDigit(123));
+// console.log(rootDigit(999888777));
+// console.log(rootDigit(1238763636555555555555));
+//
+//
+//
+//
+// QUESTION 3
+// The left shift operation is similar to multiplication by powers of two, thus, the process is repetitive and can be done recursively.
+
+// Sample calculation using the left shift operator (<<):
+
+// 10 << 3 = 10 * 2^3 = 10 * 8 = 80
+// -32 << 2 = -32 * 2^2 = -32 * 4 = -128
+// 5 << 2 = 5 * 2^2 = 5 * 4 = 20
+// Write a recursive function that mimics (without the use of <<) the left shift operator and returns the result from the two given integers.
+
+// Examples
+// shiftToLeft(5, 2) ➞ 20
+
+// shiftToLeft(10, 3) ➞ 80
+
+// shiftToLeft(-32, 2) ➞ -128
+
+// shiftToLeft(-6, 5) ➞ -192
+
+// shiftToLeft(12, 4) ➞ 192
+
+// shiftToLeft(46, 6) ➞ 2944
+// Notes
+// There will be no negative values for the second parameter y.
+// This challenge is more like recreating of the left shift operation, thus, the use of the operator directly is prohibited.
+// You are expected to solve this challenge via recursion.
+
+// // SOLUTION
+// function shiftToLeft(x, y) {
+//   return x * 2 ** y;
+// }
+// console.log(shiftToLeft(5, 2));
+// console.log(shiftToLeft(10, 3));
+// console.log(shiftToLeft(-32, 2));
+// console.log(shiftToLeft(-6, 5));
+// console.log(shiftToLeft(12, 4));
+// console.log(shiftToLeft(46, 6));
