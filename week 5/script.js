@@ -796,3 +796,135 @@
 // console.log(shiftToLeft(-6, 5));
 // console.log(shiftToLeft(12, 4));
 // console.log(shiftToLeft(46, 6));
+//
+//
+//
+//
+//
+//
+// MAR 09 2023
+//
+//
+// QUESTION 1
+// Mubashir and his friend Matt found some gold piles. They decided to follow simple rules to distribute the gold among them.
+
+// Gold will be divided into n piles.
+// Each person will choose bigger gold pile either from far left or far right.
+// If the weight of both piles is equal then the person will choose left pile.
+// Help them by creating a function that takes an array of gold piles gold and returns a two-element array with [Mubashir's Gold, Matt's Gold].
+
+// Examples
+// goldDistribution([4, 2, 9, 5, 2, 7]) ➞ [14, 15]
+// // Mubashir will choose 7, Remaining piles = [4, 2, 9, 5, 2]
+// // Matt will choose 4, Remaining piles = [2, 9, 5, 2]
+// // Mubashir will choose 2, Remaining piles = [9, 5, 2]
+// // Matt will choose 9, Remaining piles = [5, 2]
+// // Mubashir will choose 5, Remaining piles = [2]
+// // Matt will choose 2
+// // Mubashir = 7+2+5 = 14, Matt = 4+9+2 = 15
+
+// goldDistribution([10, 1000, 2, 1]) ➞ [12, 1001]
+
+// goldDistribution([10, 9, 1, 2, 8, 4]) ➞ [16, 18]
+// Notes
+// Mubashir gets to pick his gold first!
+
+// // SOLUTION
+// function goldDistribution(gold) {
+//   var mubashirGold = 0;
+//   var mattGold = 0;
+//   var left = 0;
+//   var right = gold.length - 1;
+
+//   while (left <= right) {
+//     if (gold[left] >= gold[right]) {
+//       if (mubashirGold > mattGold) {
+//         mattGold += gold[left];
+//       } else {
+//         mubashirGold += gold[left];
+//       }
+//       left++;
+//     } else {
+//       if (mubashirGold > mattGold) {
+//         mattGold += gold[right];
+//       } else {
+//         mubashirGold += gold[right];
+//       }
+//       right--;
+//     }
+//   }
+
+//   return [mubashirGold, mattGold];
+// }
+
+// console.log(goldDistribution([4, 2, 9, 5, 2, 7]));
+// console.log(goldDistribution([10, 1000, 2, 1]));
+// console.log(goldDistribution([10, 9, 1, 2, 8, 4]));
+//
+//
+//
+//
+//
+// QUESTION 2
+// You are given two arrays. The elements in arr1 threw a party and started to mix around. However, one of the elements got lost! Your task is to return the element which was lost.
+
+// Examples
+// missing([1, 2, 3, 4, 5, 6, 7, 8], [1, 3, 4, 5, 6, 7, 8]) ➞ 2
+
+// missing([true, true, false, false, true], [false, true, false, true]) ➞ true
+
+// missing(["Jane", "is", "pretty", "ugly"], ["Jane", "is", "pretty"]) ➞ "ugly"
+// Notes
+// Assume that the first array always contains 1 or more elements.
+// Elements are always lost.
+// An element can also have duplicates.
+
+// // SOLUTION
+// function missing(arr1, arr2) {
+//   for (let i = 0; i < arr1.length; i++) {
+//     if (arr1[i] !== arr2[i]) return arr1[i];
+//   }
+// }
+
+// console.log(missing([1, 2, 3, 4, 5, 6, 7, 8], [1, 3, 4, 5, 6, 7, 8]));
+// console.log(
+//   missing([true, true, false, false, true], [false, true, false, true])
+// );
+// console.log(
+//   missing(["Jane", "is", "pretty", "ugly"], ["Jane", "is", "pretty"])
+// );
+//
+//
+//
+// QUESTION 3
+// lPaeesh le pemu mnxit ehess rtnisg! Oh, sorry, that was supposed to say: Please help me unmix these strings!
+
+// Somehow my strings have all become mixed up; every pair of characters has been swapped. Help me undo this so I can understand my strings again.
+
+// Examples
+// unmix("123456") ➞ "214365"
+
+// unmix("hTsii  s aimex dpus rtni.g") ➞ "This is a mixed up string."
+
+// unmix("badce") ➞ "abcde"
+// Notes
+// The length of a string can be odd — in this case the last character is not altered (as there's nothing to swap it with).
+
+// // SOLUTION
+// function unmix(str) {
+//   let output = "";
+//   if (str.length % 2 !== 0) str += " ";
+//   for (let i = 0; i < str.length; i++) {
+//     if (i % 2 === 0) {
+//       let [first, second] = [str[i + 1], str[i]];
+//       output += first + second;
+//       // console.log(first, second);
+//     }
+//   }
+//   if (str[str.length - 1] === " ") return output.replace(" ", "");
+
+//   return output;
+// }
+// console.log(unmix("123456"));
+// console.log(unmix("hTsii  s aimex dpus rtni.g"));
+// console.log(unmix("badce"));
