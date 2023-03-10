@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 6</title>
+    <script src="script.js"></script>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(222, 222, 222, 0.5);
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 56rem;
+        height: 32rem;
+        margin: 12rem auto;
+        position: relative;
+        box-shadow: 0 0 3rem 0 rgba(0, 0, 0, 0.05);
+        border-radius: 0.9rem;
+        transition: all 0.3s;
+      }
+
+      div:hover {
+        transform: scale(1.02);
+      }
+
+      div h1 {
+        font-size: 2.4rem;
+      }
+
+      div p {
+        font-size: 1.6rem;
+      }
+
+      div p:last-child {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Welcome to week 6 challenge</h1>
+      <p>Open the console to view results</p>
+      <p>3 challenges daily</p>
+    </div>
+  </body>
+</html>
