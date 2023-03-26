@@ -6,10 +6,9 @@
 
 // Examples
 // pluralize(["cow", "pig", "cow", "cow"]) ➞ ["cows", "pig"]
-
 // pluralize(["table", "table", "table"]) ➞ ["tables"]
-
 // pluralize(["chair", "pencil", "arm"]) ➞ ["chair", "pencil", "arm"]
+
 // Notes
 // This is an oversimplification of the English language so no edge cases will appear.
 // Only focus on whether or not to add an s to the ends of words.
@@ -45,11 +44,10 @@
 
 // Examples
 // getPrices(["ice cream ($5.99)", "banana ($0.20)", "sandwich ($8.50)", "soup ($1.99)"]) ➞ [5.99, 0.2, 8.50, 1.99]
-
 // getPrices(["salad ($4.99)"]) ➞ [4.99]
+
 // Notes
 // See if you can use RegExp to solve (but it's not necessary).
-
 // // SOLUTION
 // function getPrices(arr) {
 //   const prices = [];
@@ -84,10 +82,9 @@
 // On weekends, the employer pays double the usual rate, regardless how many hours were worked previously that week. For instance, 10 hours worked on a weekday would pay 80+30 = $110, but on a weekend it would pay 160+60 = $220.
 // Examples
 // weeklySalary([8, 8, 8, 8, 8, 0, 0]) ➞ 400
-
 // weeklySalary([10, 10, 10, 0, 8, 0, 0]) ➞ 410
-
 // weeklySalary([0, 0, 0, 0, 0, 12, 0]) ➞ 280
+
 // Notes
 // Every element in the array is greater than or equal to 0.
 
@@ -122,10 +119,9 @@
 
 // Examples
 // mod(-13, 64) ➞ 51
-
 // mod(50, 25) ➞ 0
-
 // mod(-6, 3) ➞ 0
+
 // Notes
 // All test cases contain valid numbers.
 
@@ -149,12 +145,10 @@
 
 // Examples
 // invert("dLROW YM sI HsEt") ➞ "TeSh iS my worlD"
-
 // invert("ytInIUgAsnOc") ➞ "CoNSaGuiNiTY"
-
 // invert("step on NO PETS") ➞ "step on NO PETS"
-
 // invert("XeLPMoC YTiReTXeD") ➞ "dExtErIty cOmplEx"
+
 // Notes
 // No empty strings and will neither contain special characters nor punctuation.
 // A recursive version of this challenge can be found via this link.
@@ -238,8 +232,8 @@
 // // Digit 1 appeared 4 times in the array
 
 // countDigits(25, 2) ➞ 9
-
 // countDigits(10, 1) ➞ 4
+
 // Notes
 // d will always be 0<=d<10.
 
