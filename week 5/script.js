@@ -114,7 +114,6 @@
 //   "Synth-pop,Euro-Disco",
 //   "Industrial,Techno,Minimal"
 // ]) ➞ 9
-
 // uniqueStyles([
 //   "Soul",
 //   "House,Folk",
@@ -172,12 +171,10 @@
 
 // Examples
 // encrypt("banana") ➞ "0n0n0baca"
-
 // encrypt("karaca") ➞ "0c0r0kaca"
-
 // encrypt("burak") ➞ "k0r3baca"
-
 // encrypt("alpaca") ➞ "0c0pl0aca"
+
 // Notes
 // All inputs are strings, no uppercases and all output must be strings.
 
@@ -215,12 +212,11 @@
 
 // Examples
 // firstRepeat("legolas") ➞ "l"
-
 // firstRepeat("Gandalf") ➞ "a"
-
 // firstRepeat("Balrog") ➞ "-1"
 
-// firstRepeat("Isildur") ➞ "-1"
+
+// firstRepeat("Isildur") ➞ "-1
 // // Case sensitive "I" not equal to "i"
 // Notes
 // Tests are case sensitive.
@@ -253,13 +249,9 @@
 
 // Examples
 // chunkify([2, 3, 4, 5], 2) ➞ [[2, 3], [4, 5]]
-
 // chunkify([2, 3, 4, 5, 6], 2) ➞ [[2, 3], [4, 5], [6]]
-
 // chunkify([2, 3, 4, 5, 6, 7], 3) ➞ [[2, 3, 4], [5, 6, 7]]
-
 // chunkify([2, 3, 4, 5, 6, 7], 1) ➞ [[2], [3], [4], [5], [6], [7]]
-
 // chunkify([2, 3, 4, 5, 6, 7], 7) ➞ [[2, 3, 4, 5, 6, 7]]
 
 // Notes
@@ -291,10 +283,9 @@
 
 // Examples
 // duplicateNums([1, 2, 3, 4, 3, 5, 6]) ➞ [3]
-
 // duplicateNums([81, 72, 43, 72, 81, 99, 99, 100, 12, 54]) ➞ [72, 81, 99]
-
 // duplicateNums([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) ➞ null
+
 // Notes
 // The given array won't contain the same number three times.
 
@@ -365,9 +356,7 @@
 // Examples
 // happyYear(2017) ➞ 2018
 // // 2018 has all distinct digits
-
 // happyYear(1990) ➞ 2013
-
 // happyYear(2021) ➞ 2031
 
 // // SOLUTION
@@ -445,9 +434,7 @@
 // Examples
 // sumMissingNumbers([1, 3, 5, 7, 10]) ➞ 29
 // // 2 + 4 + 6 + 8 + 9
-
 // sumMissingNumbers([10, 7, 5, 3, 1]) ➞ 29
-
 // sumMissingNumbers([10, 20, 30, 40, 50, 60]) ➞ 1575
 
 // Notes
@@ -482,12 +469,9 @@
 
 // Examples
 // canConcatenate([[1, 2, 3, 4], [5, 6], [7]], [1, 2, 3, 4, 5, 6, 7]) ➞ true
-
 // canConcatenate([[2, 1, 3], [5, 4, 7, 6]], [7, 6, 5, 4, 3, 2, 1]) ➞ true
-
 // canConcatenate([[2, 1, 3], [5, 4, 7, 6, 7]], [1, 2, 3, 4, 5, 6, 7]) ➞ false
 // // Duplicate 7s not found in target array.
-
 // canConcatenate([[2, 1, 3], [5, 4, 7]], [1, 2, 3, 4, 5, 6, 7]) ➞ false
 // // Missing 6 from target array.
 
@@ -559,11 +543,8 @@
 // // Remember to sort the array!
 // Examples
 // threeLetterCollection("slap") ➞ ["lap", "sla"]
-
 // threeLetterCollection("click") ➞ ["cli", "ick", "lic"]
-
 // threeLetterCollection("cat") ➞ ["cat"]
-
 // threeLetterCollection("hi") ➞ []
 
 // Notes
@@ -734,9 +715,7 @@
 // Examples
 // rootDigit(123) ➞ 6
 // // 1 + 2 + 3 = 6
-
 // rootDigit(999888777) ➞ 9
-
 // rootDigit(1238763636555555555555) ➞ 6
 
 // // SOLUTION
@@ -771,16 +750,12 @@
 
 // Examples
 // shiftToLeft(5, 2) ➞ 20
-
 // shiftToLeft(10, 3) ➞ 80
-
 // shiftToLeft(-32, 2) ➞ -128
-
 // shiftToLeft(-6, 5) ➞ -192
-
 // shiftToLeft(12, 4) ➞ 192
-
 // shiftToLeft(46, 6) ➞ 2944
+
 // Notes
 // There will be no negative values for the second parameter y.
 // This challenge is more like recreating of the left shift operation, thus, the use of the operator directly is prohibited.
@@ -824,8 +799,8 @@
 // // Mubashir = 7+2+5 = 14, Matt = 4+9+2 = 15
 
 // goldDistribution([10, 1000, 2, 1]) ➞ [12, 1001]
-
 // goldDistribution([10, 9, 1, 2, 8, 4]) ➞ [16, 18]
+
 // Notes
 // Mubashir gets to pick his gold first!
 
@@ -870,10 +845,9 @@
 
 // Examples
 // missing([1, 2, 3, 4, 5, 6, 7, 8], [1, 3, 4, 5, 6, 7, 8]) ➞ 2
-
 // missing([true, true, false, false, true], [false, true, false, true]) ➞ true
-
 // missing(["Jane", "is", "pretty", "ugly"], ["Jane", "is", "pretty"]) ➞ "ugly"
+
 // Notes
 // Assume that the first array always contains 1 or more elements.
 // Elements are always lost.
@@ -903,10 +877,9 @@
 
 // Examples
 // unmix("123456") ➞ "214365"
-
 // unmix("hTsii  s aimex dpus rtni.g") ➞ "This is a mixed up string."
-
 // unmix("badce") ➞ "abcde"
+
 // Notes
 // The length of a string can be odd — in this case the last character is not altered (as there's nothing to swap it with).
 
